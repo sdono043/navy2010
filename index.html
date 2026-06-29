@@ -272,10 +272,39 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 820px) {
-      .map-section { flex-direction:column; padding:0.75rem; }
-      .info-panel { width:100%; margin-left:0; margin-top:1rem; max-height:none; transform:translateY(16px); }
-      .info-panel.visible { transform:translateY(0); }
-      #map { height:420px; }
+      /* map fills most of the viewport */
+      .map-section { padding:0; display:block; }
+      .map-frame { border:none; box-shadow:none; border-radius:0; }
+      #map { height: calc(100svh - 220px); min-height:360px; }
+
+      /* panel slides up from bottom as a sheet */
+      .info-panel {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        width: 100%;
+        max-height: 65vh;
+        margin: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: 3px solid var(--gold);
+        border-radius: 0;
+        transform: translateY(100%);
+        z-index: 2000;
+        padding: 1.25rem 1.25rem 2rem;
+      }
+      .info-panel.visible { transform: translateY(0); opacity:1; pointer-events:all; }
+
+      /* close button stays top-right */
+      .panel-close { top: 0.75rem; right: 0.75rem; }
+
+      /* hint bar: swap hover for tap */
+      .hint-hover { display:none; }
+      .hint-tap { display:inline; }
+    }
+
+    @media (min-width: 821px) {
+      .hint-tap { display:none; }
     }
   </style>
 </head>
@@ -296,7 +325,11 @@
 </header>
 
 <div class="hint-bar anim-3">
-  <p>Hover any <span>building or monument</span> for a preview &nbsp;·&nbsp; <span>Click</span> to read its full story</p>
+  <p>
+    <span class="hint-hover">Hover any</span><span class="hint-tap">Tap any</span>
+    <span>building or monument</span> for a preview &nbsp;·&nbsp;
+    <span class="hint-hover">Click</span><span class="hint-tap">Tap again</span> to read its full story
+  </p>
 </div>
 
 <!-- ════════ MAP + PANEL ════════ -->
@@ -596,6 +629,10 @@ map.on('click', e => {
   console.log(`Clicked: [${e.latlng.lat.toFixed(6)}, ${e.latlng.lng.toFixed(6)}]`);
 });
 
+// Ensure tiles render after the fadeIn animation (0.5s delay + 1.2s fade = 1.7s)
+setTimeout(() => map.invalidateSize(), 1800);
+window.addEventListener('resize', () => map.invalidateSize());
+
 // ══════════════════════════════════════════════
 //  INFO PANEL
 // ══════════════════════════════════════════════
@@ -629,6 +666,9 @@ function closePanel() {
 }
 
 panelClose.addEventListener('click', closePanel);
+
+// On mobile: tapping the map outside a building closes the panel
+map.on('click', () => { if (window.innerWidth <= 820) closePanel(); });
 
 // ══════════════════════════════════════════════
 //  POLYGON & MARKER STYLES

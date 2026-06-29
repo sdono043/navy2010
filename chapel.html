@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naval Academy Chapel · The Yard · USNA Class of 2010</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep:#040D1C; --navy-bg:#061224; --navy-mid:#0A1E38; --navy-panel:#0C2040;
+      --gold:#C9A227; --gold-light:#E8C84A; --gold-dim:#7A6418; --gold-pale:#F0E4B0;
+      --text:#E8D8A0; --text-dim:#8A9AA8;
+      --hero-photo: none;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.2);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero{min-height:520px;background:linear-gradient(to bottom,rgba(4,13,28,0.3) 0%,rgba(4,13,28,0.88) 65%,var(--navy-deep) 100%),var(--hero-photo) center/cover no-repeat,linear-gradient(160deg,#060e22 0%,#0c1e3c 60%,#071528 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 3rem 3.5rem;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
+    .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(201,162,39,0.07) 0%,transparent 70%);pointer-events:none;}
+    .hero-type{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:0.5rem;}
+    .hero-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,6vw,4rem);font-weight:700;color:var(--gold-light);line-height:1.1;text-shadow:0 0 40px rgba(232,200,74,0.3),0 2px 20px rgba(0,0,0,0.8);margin-bottom:0.4rem;}
+    .hero-year{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero-rule{width:80px;height:1px;background:var(--gold);margin:1rem 0;}
+    .content-wrapper{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:3rem;}
+    @media(max-width:800px){.content-wrapper{grid-template-columns:1fr;}}
+    .section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.3),transparent);}
+    .named-for{background:rgba(12,32,64,0.5);border-left:3px solid var(--gold);padding:1.5rem;margin-bottom:2.5rem;}
+    .nf-who{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--gold-light);margin-bottom:0.25rem;}
+    .nf-dates{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:0.75rem;}
+    .nf-role{font-size:0.82rem;color:var(--text-dim);font-style:italic;}
+    .history-section p{font-size:1.05rem;line-height:1.85;color:rgba(232,216,160,0.9);margin-bottom:1.35rem;}
+    .history-section p:last-child{margin-bottom:0;}
+    .pull-quote{border-left:3px solid var(--gold);padding:1rem 1.5rem;margin:1.5rem 0 2rem;font-style:italic;font-size:1.15rem;color:var(--gold-pale);line-height:1.6;}
+    .facts-sidebar{position:sticky;top:5rem;}
+    .facts-header{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;color:var(--gold-dim);margin-bottom:0.75rem;}
+    .facts-list{list-style:none;background:var(--navy-panel);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;}
+    .facts-list li{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.04em;color:var(--text-dim);padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(201,162,39,0.08);position:relative;line-height:1.55;}
+    .facts-list li:last-child{border-bottom:none;}
+    .facts-list li::before{content:'⚓';position:absolute;left:0;font-size:0.45rem;top:0.65rem;color:var(--gold-dim);}
+    .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
+    .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.12);background:#020810;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.35);font-style:italic;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+
+<div class="hero">
+  <p class="hero-type">LANDMARK</p>
+  <h1 class="hero-name">Naval Academy Chapel</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-year">DEDICATED MAY 28, 1908 &nbsp;·&nbsp; CRYPT COMPLETED 1913</p>
+</div>
+
+<div class="content-wrapper">
+  <main>
+    <div class="named-for">
+      <p class="section-label">ENTOMBED WITHIN</p>
+      <p class="nf-who">John Paul Jones</p>
+      <p class="nf-dates">JULY 6, 1747 – JULY 18, 1792</p>
+      <p class="nf-role">Father of the American Navy &nbsp;·&nbsp; Captain, Continental Navy</p>
+    </div>
+
+    <div class="history-section">
+      <p class="section-label">THE CHAPEL</p>
+      <p>The Naval Academy Chapel is the commanding architectural centerpiece of the Yard. Designed by Ernest Flagg in the Beaux-Arts tradition as part of his comprehensive early-1900s redesign of the Academy, the chapel's cornerstone was laid in 1904 by Admiral George Dewey — the hero of Manila Bay. The building was dedicated on May 28, 1908, the same calendar date as every USNA graduation since.</p>
+      <p>The chapel's great copper dome rises 200 feet above the Yard — a landmark visible from throughout Annapolis and from the Chesapeake Bay. The soaring interior seats approximately 2,500 worshippers and is lined with magnificent Tiffany stained glass windows depicting scenes of naval valor and Scripture. For over a century it has stood at the center of every major ceremony in the Brigade's calendar, from Sunday services to Memorial observances to the weddings of thousands of Naval Academy graduates.</p>
+
+      <p class="section-label" style="margin-top:2rem">JOHN PAUL JONES</p>
+      <p>John Paul Jones was born John Paul in Kirkbean, Scotland, on July 6, 1747. He went to sea at 13, became a ship captain, killed a mutinous crew member in self-defense, changed his name, and came to America on the eve of the Revolution. The Continental Congress commissioned him into the nascent Continental Navy, where he proved to be the most aggressive and tactically creative commander the young country produced.</p>
+      <p>In April 1778 he raided the British port of Whitehaven — the first hostile landing on British soil since the Dutch raid of 1667. In September 1779, commanding the aging French merchant vessel he had renamed <em>Bonhomme Richard</em> (in honor of Benjamin Franklin's "Poor Richard"), Jones engaged HMS <em>Serapis</em> off Flamborough Head in the North Sea. The battle lasted over three hours. With his ship on fire and sinking beneath him, he was asked to surrender.</p>
+
+      <div class="pull-quote">"I have not yet begun to fight!"</div>
+
+      <p>He eventually boarded and captured <em>Serapis</em> as <em>Bonhomme Richard</em> sank beneath him. The battle became the defining story of American naval fighting spirit. Jones died in Paris in 1792 at age 45 — unrecognized and largely forgotten — and was buried in the Saint Louis Cemetery for foreign Protestants.</p>
+
+      <p class="section-label" style="margin-top:2rem">THE RETURN</p>
+      <p>Over a century later, President Theodore Roosevelt directed that Jones be found and returned to American soil. In March 1905, Ambassador General Horace Porter — who had spent six years and his own personal funds searching Parisian records — located Jones' lead-lined coffin in remarkably well-preserved condition beneath a building in Paris. The remains were carried with ceremony to Cherbourg and transported aboard the cruiser USS <em>Brooklyn</em>, escorted by three other warships, to Annapolis.</p>
+      <p>After the crypt beneath the Chapel was completed, on January 26, 1913, John Paul Jones was interred in a 21-ton sarcophagus of black and white Italian marble, supported by six bronze dolphins, designed by French-American sculptor Sylvain Salières. Brass inscriptions on the floor list the ships he commanded: <em>Providence, Alfred, Ranger, Bonhomme Richard, Serapis, Alliance,</em> and <em>Ariel.</em> The crypt is one of the most significant military shrines in the United States.</p>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to The Yard</a>
+  </main>
+
+  <aside class="facts-sidebar">
+    <p class="facts-header">KEY FACTS</p>
+    <ul class="facts-list">
+      <li>Cornerstone laid by Admiral George Dewey, 1904</li>
+      <li>Dedicated May 28, 1908 — the date of USNA graduations</li>
+      <li>Designed by Ernest Flagg, Beaux-Arts style</li>
+      <li>200-foot copper dome visible from the Chesapeake Bay</li>
+      <li>Tiffany stained glass throughout the nave</li>
+      <li>Seats ~2,500 worshippers</li>
+      <li>Crypt of John Paul Jones completed January 26, 1913</li>
+      <li>Jones' sarcophagus weighs 21 tons, supported by six bronze dolphins</li>
+      <li>Ambassador Porter spent 6 years and personal funds locating Jones' remains in Paris</li>
+      <li>Remains returned to Annapolis aboard USS Brooklyn, escorted by four warships</li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+</body>
+</html>

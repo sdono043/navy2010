@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelson Hall · The Yard · USNA Class of 2010</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;--hero-photo:none;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.2);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero{min-height:520px;background:linear-gradient(to bottom,rgba(4,13,28,0.3) 0%,rgba(4,13,28,0.88) 65%,var(--navy-deep) 100%),var(--hero-photo) center/cover no-repeat,linear-gradient(160deg,#060e22 0%,#0c1e3c 60%,#071528 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 3rem 3.5rem;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
+    .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(201,162,39,0.07) 0%,transparent 70%);pointer-events:none;}
+    .hero-type{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:0.5rem;}
+    .hero-name{font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,7vw,4.5rem);font-weight:700;color:var(--gold-light);line-height:1.1;text-shadow:0 0 40px rgba(232,200,74,0.3),0 2px 20px rgba(0,0,0,0.8);margin-bottom:0.4rem;}
+    .hero-year{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero-rule{width:80px;height:1px;background:var(--gold);margin:1rem 0;}
+    .content-wrapper{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:3rem;}
+    @media(max-width:800px){.content-wrapper{grid-template-columns:1fr;}}
+    .section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.3),transparent);}
+    .named-for{background:rgba(12,32,64,0.5);border-left:3px solid var(--gold);padding:1.5rem;margin-bottom:2.5rem;}
+    .nf-who{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--gold-light);margin-bottom:0.25rem;}
+    .nf-dates{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:0.75rem;}
+    .nf-role{font-size:0.82rem;color:var(--text-dim);font-style:italic;}
+    .history-section p{font-size:1.05rem;line-height:1.85;color:rgba(232,216,160,0.9);margin-bottom:1.35rem;}
+    .history-section p:last-child{margin-bottom:0;}
+    .highlight-box{background:rgba(12,32,64,0.6);border:1px solid rgba(201,162,39,0.25);padding:1.25rem 1.5rem;margin:1.5rem 0 2rem;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.06em;color:var(--gold-pale);line-height:1.7;}
+    .facts-sidebar{position:sticky;top:5rem;}
+    .facts-header{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;color:var(--gold-dim);margin-bottom:0.75rem;}
+    .facts-list{list-style:none;background:var(--navy-panel);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;}
+    .facts-list li{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.04em;color:var(--text-dim);padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(201,162,39,0.08);position:relative;line-height:1.55;}
+    .facts-list li:last-child{border-bottom:none;}
+    .facts-list li::before{content:'⚓';position:absolute;left:0;font-size:0.45rem;top:0.65rem;color:var(--gold-dim);}
+    .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
+    .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.12);background:#020810;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.35);font-style:italic;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+
+<div class="hero">
+  <p class="hero-type">ACADEMIC BUILDING</p>
+  <h1 class="hero-name">Michelson Hall</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-year">DEDICATED MAY 10, 1969</p>
+</div>
+
+<div class="content-wrapper">
+  <main>
+    <div class="named-for">
+      <p class="section-label">NAMED FOR</p>
+      <p class="nf-who">Albert Abraham Michelson</p>
+      <p class="nf-dates">DECEMBER 19, 1852 – MAY 9, 1931</p>
+      <p class="nf-role">Physicist · USNA Class of 1873 · First American Nobel Laureate in any science</p>
+    </div>
+
+    <div class="history-section">
+      <p class="section-label">THE NAMESAKE</p>
+      <p>Albert Michelson was born in Strelno, Prussia (now Strzelno, Poland), the son of a Jewish merchant who immigrated to the American West during the Gold Rush. Growing up in the mining camps of Nevada and California, Michelson received a special appointment to the Naval Academy from President Ulysses S. Grant in 1869. He graduated in the Class of 1873, stood out for his aptitude in optics and technical drawing, and after two years at sea, returned to the Academy in 1875 as an instructor in physics and chemistry.</p>
+      <p>It was during this instructor tour — right on these grounds — that Michelson conducted the foundational experiments on the speed of light that would eventually earn him the Nobel Prize. Using the buildings and facilities of the Yard as his laboratory, he employed an ingenious rotating mirror apparatus to measure the velocity of light with unprecedented precision, publishing results in 1879 that refined all previous measurements.</p>
+
+      <div class="highlight-box">The Nobel Prize-winning experiments were conducted here, on the grounds of the Naval Academy, during Michelson's tour as a physics instructor from 1875 to 1879.</div>
+
+      <p>In 1887, working with Edward Morley at the Case School of Applied Science, Michelson conducted the famous Michelson-Morley experiment — designed to detect the motion of Earth through the hypothetical "luminiferous ether." The experiment found no such motion. That null result shook the foundations of 19th-century physics and became one of the key experimental pillars supporting Albert Einstein's Special Theory of Relativity.</p>
+      <p>In 1907, the Swedish Royal Academy of Sciences awarded Michelson the Nobel Prize in Physics for his "optical precision instruments and the spectroscopic and metrological investigations conducted therewith" — making him not only the first American to win a Nobel Prize in physics, but the first American to win a Nobel Prize in any scientific discipline. He spent his career continuously refining the measurement of the speed of light; his final measurements, completed just before his death, came within 0.002% of the modern accepted value.</p>
+
+      <p class="section-label" style="margin-top:2rem">THE BUILDING</p>
+      <p>Michelson Hall was dedicated on May 10, 1969 — one day after the 38th anniversary of Michelson's death. No other Nobel laureate has both attended and taught at a military academy, conducted his Nobel Prize-winning research on its grounds, and had a building named there in his honor. Today the hall houses USNA's science laboratories and classrooms.</p>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to The Yard</a>
+  </main>
+
+  <aside class="facts-sidebar">
+    <p class="facts-header">KEY FACTS</p>
+    <ul class="facts-list">
+      <li>USNA Class of 1873; received his appointment from President Ulysses S. Grant</li>
+      <li>First American to win a Nobel Prize in any scientific discipline (Physics, 1907)</li>
+      <li>Conducted his Nobel Prize-winning light experiments on USNA grounds (1875–1879)</li>
+      <li>Michelson-Morley experiment (1887) produced the null result supporting Special Relativity</li>
+      <li>Final speed-of-light measurements within 0.002% of the modern accepted value</li>
+      <li>Dedicated May 10, 1969 — one day after the 38th anniversary of Michelson's death</li>
+      <li>Houses USNA's physics laboratories and classrooms</li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nimitz Library · The Yard · USNA Class of 2010</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;--hero-photo:none;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.2);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero{min-height:520px;background:linear-gradient(to bottom,rgba(4,13,28,0.3) 0%,rgba(4,13,28,0.88) 65%,var(--navy-deep) 100%),var(--hero-photo) center/cover no-repeat,linear-gradient(160deg,#060e22 0%,#0c1e3c 60%,#071528 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 3rem 3.5rem;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
+    .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(201,162,39,0.07) 0%,transparent 70%);pointer-events:none;}
+    .hero-type{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:0.5rem;}
+    .hero-name{font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,7vw,4.5rem);font-weight:700;color:var(--gold-light);line-height:1.1;text-shadow:0 0 40px rgba(232,200,74,0.3),0 2px 20px rgba(0,0,0,0.8);margin-bottom:0.4rem;}
+    .hero-year{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero-rule{width:80px;height:1px;background:var(--gold);margin:1rem 0;}
+    .content-wrapper{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:3rem;}
+    @media(max-width:800px){.content-wrapper{grid-template-columns:1fr;}}
+    .section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.3),transparent);}
+    .named-for{background:rgba(12,32,64,0.5);border-left:3px solid var(--gold);padding:1.5rem;margin-bottom:2.5rem;}
+    .nf-who{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--gold-light);margin-bottom:0.25rem;}
+    .nf-dates{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:0.75rem;}
+    .nf-role{font-size:0.82rem;color:var(--text-dim);font-style:italic;}
+    .history-section p{font-size:1.05rem;line-height:1.85;color:rgba(232,216,160,0.9);margin-bottom:1.35rem;}
+    .history-section p:last-child{margin-bottom:0;}
+    .facts-sidebar{position:sticky;top:5rem;}
+    .facts-header{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;color:var(--gold-dim);margin-bottom:0.75rem;}
+    .facts-list{list-style:none;background:var(--navy-panel);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;}
+    .facts-list li{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.04em;color:var(--text-dim);padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(201,162,39,0.08);position:relative;line-height:1.55;}
+    .facts-list li:last-child{border-bottom:none;}
+    .facts-list li::before{content:'⚓';position:absolute;left:0;font-size:0.45rem;top:0.65rem;color:var(--gold-dim);}
+    .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
+    .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.12);background:#020810;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.35);font-style:italic;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+<div class="hero">
+  <p class="hero-type">LIBRARY &nbsp;·&nbsp; USNA CLASS OF 1905</p>
+  <h1 class="hero-name">Nimitz Library</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-year">COMPLETED 1973 &nbsp;·&nbsp; FLEET ADMIRAL CHESTER W. NIMITZ</p>
+</div>
+<div class="content-wrapper">
+  <main>
+    <div class="named-for">
+      <p class="section-label">NAMED FOR</p>
+      <p class="nf-who">Fleet Admiral Chester W. Nimitz</p>
+      <p class="nf-dates">FEBRUARY 24, 1885 – FEBRUARY 20, 1966</p>
+      <p class="nf-role">USNA Class of 1905 &nbsp;·&nbsp; Commander in Chief, U.S. Pacific Fleet, 1941–1945</p>
+    </div>
+    <div class="history-section">
+      <p class="section-label">THE NAMESAKE</p>
+      <p>Chester Nimitz was born in Fredericksburg, Texas, in the German Hill Country, the grandson of a seafaring merchant captain from Bremen who filled young Chester with sea stories. Nimitz applied to West Point but was told there were no vacancies. Learning of an opening at the Naval Academy, he pursued it with equal determination and graduated in 1905, seventh in a class of 114.</p>
+      <p>His early career was marked by an incident that would have ended lesser officers: as commanding officer of the destroyer USS <em>Decatur</em> in 1908, he ran the ship aground and was court-martialed and formally reprimanded. He recovered, became an expert submariner and diesel engineer, and rose through the interwar Navy as a respected commander and administrator.</p>
+      <p>On December 31, 1941 — three weeks after the attack on Pearl Harbor — Nimitz stood on the deck of the submarine USS <em>Grayling</em> in Pearl Harbor and, in a ceremony of unusual urgency, assumed command of the shattered U.S. Pacific Fleet. What he inherited was a devastated force, a broken base, and a nation in shock. What he built over the next three and a half years was the most sweeping naval campaign in human history.</p>
+      <p>Nimitz orchestrated the pivotal Battle of Midway in June 1942 — the turning point of the Pacific War — followed by Guadalcanal, the island-hopping campaign across the Central Pacific, the Battle of the Philippine Sea, Leyte Gulf, Iwo Jima, and Okinawa. He promoted bold commanders like Raymond Spruance and William "Bull" Halsey, managed enormous coalition logistics, and maintained calm strategic judgment under conditions of extreme pressure. On September 2, 1945, he signed Japan's instrument of surrender aboard USS <em>Missouri</em> in Tokyo Bay on behalf of the United States.</p>
+      <p class="section-label" style="margin-top:2rem">THE LIBRARY</p>
+      <p>In 1944 Nimitz became one of only four men in U.S. history to hold the five-star rank of Fleet Admiral. After the war he served as Chief of Naval Operations before retiring in 1947. He died in 1966 and is buried at Golden Gate National Cemetery in San Francisco. The Nimitz Library, completed in 1973 and designed by architect John Carl Warnecke, replaced Mahan Hall as the Academy's main library. It houses the vast academic and historical research collections the Naval Academy requires — including the Chester W. Nimitz Papers.</p>
+    </div>
+    <a href="index.html" class="back-btn">← Back to The Yard</a>
+  </main>
+  <aside class="facts-sidebar">
+    <p class="facts-header">KEY FACTS</p>
+    <ul class="facts-list">
+      <li>USNA Class of 1905; graduated 7th in a class of 114</li>
+      <li>Assumed command of the Pacific Fleet on December 31, 1941</li>
+      <li>Orchestrated Midway, Guadalcanal, Philippine Sea, Leyte Gulf, Iwo Jima, Okinawa</li>
+      <li>Signed Japan's Instrument of Surrender on USS Missouri, September 2, 1945</li>
+      <li>One of only four U.S. officers ever to hold the rank of Fleet Admiral (five stars)</li>
+      <li>Library completed 1973; designed by John Carl Warnecke</li>
+      <li>Houses the Chester W. Nimitz Papers</li>
+    </ul>
+  </aside>
+</div>
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+</body>
+</html>

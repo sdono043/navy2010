@@ -237,6 +237,24 @@
     .panel-facts li { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.04em; color:var(--text-dim); padding:0.28rem 0 0.28rem 1.1rem; border-bottom:1px solid rgba(201,162,39,0.07); position:relative; }
     .panel-facts li::before { content:'⚓'; position:absolute; left:0; font-size:0.48rem; top:0.42rem; color:var(--gold-dim); }
 
+    .panel-history-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .panel-history-btn:hover { background: var(--gold); color: var(--navy-deep); }
+    .panel-history-btn .btn-arrow { font-size: 1rem; letter-spacing: 0; font-family: serif; }
+
     /* ── COUNTDOWN ── */
     .countdown-section { text-align:center; padding:3rem 2rem; border-top:1px solid rgba(201,162,39,0.15); background:linear-gradient(0deg,#020810 0%,var(--navy-bg) 100%); }
     .countdown-heading { font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.42em; color:var(--gold-dim); margin-bottom:2rem; }
@@ -299,6 +317,9 @@
     <p class="panel-short" id="panel-short"></p>
     <p class="panel-body" id="panel-body"></p>
     <ul class="panel-facts" id="panel-facts"></ul>
+    <a class="panel-history-btn" id="panel-history-link" href="#" style="display:none">
+      FULL HISTORY &amp; PHOTOS <span class="btn-arrow">→</span>
+    </a>
   </div>
 </section>
 
@@ -332,66 +353,81 @@ const LOCATIONS = {
   bancroft: {
     name: "Bancroft Hall", type: "Academy Building", year: "COMPLETED 1906",
     short: "The world's largest dormitory — home to every midshipman at USNA.",
-    body: `Named for George Bancroft, the Secretary of the Navy who founded the Naval Academy in 1845, Bancroft Hall stands as the beating heart of every midshipman's life. Completed in 1906 by architects Cram, Goodhue & Ferguson in the Beaux-Arts style, "Mother B" is the world's largest dormitory — a single interconnected complex covering nearly 33 acres of floor space with over 1,700 rooms, 4.8 miles of corridors, and its own ZIP code (21412).
+    body: `Named for George Bancroft, who founded the Naval Academy in 1845 through a clever executive maneuver — transferring Fort Severn from Army to Navy without waiting for Congress. His plan: end the chaotic system of training officers at sea and replace it with rigorous academics on shore.
 
-Every midshipman lives within Bancroft's wings, organized by company. Inside, Memorial Hall preserves the battle flags of the naval service — including the famous "Don't Give Up the Ship" pennant from Commodore Perry's flagship at the Battle of Lake Erie.`,
-    facts: ["World's largest dormitory","1,700+ rooms, 4.8 miles of corridors","Houses all ~4,400 midshipmen","Named for USNA founder George Bancroft","ZIP code: 21412"]
+Designed by architect Ernest Flagg in the Beaux-Arts style, "Mother B" was built wing by wing from 1901 to 1961, ultimately reaching 33 acres of floor space, 1,639 dormitory rooms, and 4.8 miles of interior corridors. It even has its own ZIP code: 21412.
+
+Memorial Hall inside the main entrance is a sacred space displaying battle flags of the naval service — including Perry's "Don't Give Up the Ship" pennant from the Battle of Lake Erie.`,
+    facts: ["World's largest single dormitory","33 acres of floor space, 4.8 miles of corridors","1,639 rooms housing all ~4,400 midshipmen","Named for USNA founder George Bancroft (1800–1891)","Known as 'Mother B' or simply 'The Hall'","ZIP code: 21412"],
+    page: 'bancroft.html'
   },
   chapel: {
-    name: "Naval Academy Chapel", type: "Landmark", year: "COMPLETED 1908",
-    short: "A 200-foot dome, Tiffany glass, and the crypt of John Paul Jones.",
-    body: `The Naval Academy Chapel, completed in 1908, rises 200 feet above the Yard — its great green copper dome a landmark visible for miles. Designed by Ernest Flagg in the French Renaissance style, the Chapel serves as the Academy's spiritual heart.
+    name: "Naval Academy Chapel", type: "Landmark", year: "DEDICATED 1908",
+    short: "A soaring 200-foot dome, Tiffany glass, and the crypt of John Paul Jones.",
+    body: `Designed by Ernest Flagg, the Chapel's cornerstone was laid by Admiral George Dewey in 1904. Its great copper dome — visible for miles across Annapolis and the Bay — rises 200 feet above the Yard. The interior seats 2,500 and contains magnificent Tiffany stained glass windows.
 
-Beneath the marble floor lies the crypt of John Paul Jones, whose immortal declaration — "I have not yet begun to fight!" — echoes through every midshipman's spirit. The interior features magnificent Tiffany stained glass windows depicting scenes of naval valor.`,
-    facts: ["200-foot dome, visible for miles","Crypt of John Paul Jones below the nave","Tiffany stained glass windows","Designed by Ernest Flagg","Site of thousands of Navy weddings"]
+Beneath the marble nave lies the crypt of John Paul Jones — "I have not yet begun to fight!" — who died in Paris in 1792 and was buried in an unmarked grave. Over a century later, Ambassador Horace Porter spent six years and his own personal funds tracing the coffin. Jones' remains were returned to Annapolis in 1905 aboard USS Brooklyn, escorted by four warships. His 21-ton Italian marble sarcophagus was completed in 1913.`,
+    facts: ["Cornerstone laid by Admiral George Dewey, 1904","200-foot copper dome visible from the Chesapeake Bay","Crypt of John Paul Jones completed 1913","Jones' sarcophagus weighs 21 tons, supported by six bronze dolphins","Tiffany stained glass throughout the nave","Dedicated May 28, 1908 — the date of USNA graduations"],
+    page: 'chapel.html'
   },
   tecumseh: {
     name: "Tecumseh Monument", type: "Monument", year: "INSTALLED 1866",
     short: 'The "God of 2.0" — midshipmen\'s bronze patron of academic fortune.',
-    body: `The Tecumseh Monument is perhaps the most beloved icon of the entire Academy. Though misnamed, the bronze is actually a casting of "Tamanend," the figurehead from the 74-gun ship USS Delaware (1820) — but midshipmen always called it Tecumseh, and tradition made it so.
+    body: `The Tecumseh Monument is the most beloved icon of the entire Academy — and is technically misnamed. The bronze is actually a casting of "Tamanend," the figurehead from the 74-gun ship USS Delaware (1820), depicting a Lenape chief. But midshipmen always called it Tecumseh, and a century of tradition made it official.
 
-Before major exams, midshipmen toss pennies at the statue hoping for good luck. Before every Army-Navy game, Tecumseh is dramatically painted in full battle regalia — quiver of arrows aimed toward West Point.`,
-    facts: ["Actually depicts Lenape Chief Tamanend","Figurehead from USS Delaware (1820)",'"God of 2.0" — luck deity for exams',"Pennies tossed for good luck","Painted in battle gear before Army-Navy game"]
+Before major exams, midshipmen toss pennies at the statue's quiver hoping for good luck. Before every Army-Navy game, Tecumseh is dramatically painted in full battle regalia, arrows aimed toward West Point.`,
+    facts: ["Actually depicts Lenape Chief Tamanend","Figurehead from USS Delaware (1820)",'"God of 2.0" — the luck deity for exams',"Pennies tossed at quiver for good luck","Painted in battle gear before Army-Navy game","Technically misnamed — but tradition rules"]
   },
   tripoli: {
     name: "Tripoli Monument", type: "Monument", year: "CARVED 1806",
     short: "The oldest US military monument — honoring heroes of the First Barbary War.",
-    body: `The Tripoli Monument holds the distinction of being the oldest US military monument still standing in the United States. Carved from Carrara marble in Livorno, Italy in 1806, it honors six naval officers who died during America's first foreign naval war.
+    body: `The Tripoli Monument is the oldest military monument in the United States and was the first public monument ever erected in Washington, D.C. Carved from white marble by sculptor Micali in Livorno, Italy in 1806, it honors six officers killed in the First Barbary War — America's first overseas military conflict. It was transported to America aboard USS Constitution — "Old Ironsides" — in 1808.
 
-Originally erected at the Washington Navy Yard in 1808, it was moved to the Capitol in 1831, then transferred to the Naval Academy in 1860, where it has stood ever since.`,
-    facts: ["Oldest US military monument still standing","Carved in Livorno, Italy, 1806","Honors six officers from Battle of Tripoli (1804)","Originally at the Washington Navy Yard","Moved to USNA in 1860"]
+It stood at the Washington Navy Yard, then the Capitol's west terrace, before arriving at the Naval Academy in 1860. The six names it honors: Somers, Caldwell, Decatur, Wadsworth, Israel, and Dorsey — men who died so American ships could sail without paying tribute to Barbary pirates.`,
+    facts: ["Oldest military monument in the United States","First public monument in Washington, D.C.","Carved in Livorno, Italy, 1806","Transported to America aboard USS Constitution","Honors six officers killed in the First Barbary War (1801–1805)","Three homes: Navy Yard 1808 → Capitol 1831 → USNA 1860"],
+    page: 'tripoli.html'
   },
   michelson: {
-    name: "Michelson Hall", type: "Academic Building", year: "COMPLETED 1968",
-    short: "Named for the first American Nobel Prize winner — USNA Class of 1873.",
-    body: `Michelson Hall honors Albert Abraham Michelson, USNA Class of 1873, who became the first American scientist to win the Nobel Prize — in Physics, 1907.
+    name: "Michelson Hall", type: "Academic Building", year: "DEDICATED 1969",
+    short: "Named for the first American Nobel laureate — who won it for experiments done right here.",
+    body: `Albert Abraham Michelson, USNA Class of 1873, became the first American to win a Nobel Prize in any science — Physics, 1907 — for his precision measurement of the speed of light. His foundational experiments were conducted on these very grounds during his instructor tour here from 1875 to 1879.
 
-His greatest achievement was the Michelson-Morley experiment of 1887, which definitively disproved the luminiferous ether, laying the groundwork for Einstein's Special Theory of Relativity.`,
-    facts: ["Named for USNA Class of 1873 alumnus","First American Nobel Prize winner (Physics, 1907)","Michelson-Morley experiment (1887)","Laid groundwork for Special Relativity","Houses the USNA Physics Department"]
+In 1887, Michelson and Edward Morley conducted their famous experiment which found no evidence of the "luminiferous ether" that physicists assumed carried light waves. That null result became a key pillar of Einstein's Special Theory of Relativity. Michelson's final speed-of-light measurements came within 0.002% of the modern accepted value.
+
+Michelson Hall was dedicated on May 10, 1969 — one day after the 38th anniversary of Michelson's death — and houses USNA's physics laboratories.`,
+    facts: ["USNA Class of 1873","First American to win a Nobel Prize in any science (Physics, 1907)","Conducted his Nobel Prize-winning experiments on USNA grounds","Michelson-Morley experiment (1887) supported Special Relativity","Final speed-of-light measurements within 0.002% of modern value","Dedicated May 10, 1969"],
+    page: 'michelson.html'
   },
   chauvenet: {
-    name: "Chauvenet Hall", type: "Academic Building", year: "COMPLETED 1968",
-    short: "Named for USNA's founding professor — a Yale graduate at age 16.",
-    body: `Chauvenet Hall commemorates William Chauvenet, the brilliant mathematician who became the first full professor at the Naval School in 1845 — the Academy's founding faculty member.
+    name: "Chauvenet Hall", type: "Academic Building", year: "DEDICATED 1969",
+    short: "Named for the man who wrote the academic blueprint for the Naval Academy.",
+    body: `William Chauvenet (1820–1870) was a Yale graduate and mathematical prodigy who joined the Navy's educational system in 1842. Frustrated with the chaos of naval officer training, he drafted a comprehensive academic plan for a naval school with rigorous mathematics and professional standards. In 1845, Secretary of the Navy George Bancroft used Chauvenet's plan as the foundation for the Naval Academy. Fleet Admiral S.R. Franklin formally named him "Father of the Naval Academy" in 1890.
 
-A Yale graduate at 16, he shaped naval officer education for decades through definitive textbooks in spherical astronomy, navigation, and geometry. The Chauvenet Prize (MAA) bears his name to this day.`,
-    facts: ["Named for USNA's founding professor (1845)","Yale graduate at age 16","Definitive texts on astronomy and navigation","Chauvenet Prize (MAA) named for him","Houses the USNA Mathematics Department"]
+Chauvenet taught at USNA from its founding until 1859, writing landmark textbooks in spherical trigonometry and navigation that became standard at universities across the country.
+
+Chauvenet Hall houses USNA's Mathematics Department. The Mathematical Association of America's most prestigious prize for mathematical writing — the Chauvenet Prize — also bears his name.`,
+    facts: ["Formally named 'Father of the Naval Academy' by Fleet Admiral Franklin, 1890","Drafted the academic plan Bancroft used to found USNA in 1845","Yale Class of 1840; one of eight founding members of Skull and Bones","Textbooks on spherical trigonometry were standard at US universities","MAA Chauvenet Prize (since 1925) recognizes outstanding mathematical exposition","Dedicated 1969; houses the USNA Mathematics Department"],
+    page: 'chauvenet.html'
   },
   rickover: {
-    name: "Rickover Hall", type: "Academic Building", year: "COMPLETED 1974",
-    short: "Named for the Father of the Nuclear Navy.",
-    body: `Rickover Hall bears the name of Admiral Hyman G. Rickover — the Father of the Nuclear Navy. He spent over six decades in the Navy, personally interviewing every candidate for nuclear submarine duty — including a young Jimmy Carter.
+    name: "Rickover Hall", type: "Academic Building", year: "COMPLETED 1975",
+    short: "Named for the Father of the Nuclear Navy — USNA Class of 1922.",
+    body: `Hyman G. Rickover, USNA Class of 1922, transformed American military power through sheer engineering will. Assigned to develop naval nuclear propulsion in 1948 over significant institutional resistance, he drove the program with obsessive precision. The result: USS Nautilus (SSN-571), commissioned in 1955 — the world's first nuclear-powered ship. When Nautilus sent the message "Underway on nuclear power," submarine warfare was forever changed.
 
-Under his drive, USS Nautilus became the world's first nuclear-powered submarine in 1954. His engineering philosophy — thorough, exacting, uncompromising — lives in the curriculum here.`,
-    facts: ['Named for "Father of the Nuclear Navy"',"Rickover served 63 years in uniform","USS Nautilus (1954): first nuclear submarine","Personally interviewed ALL nuclear candidates","His interviewees included President Jimmy Carter"]
+Rickover personally interviewed every officer seeking nuclear submarine duty in famously grueling sessions. Future President Jimmy Carter was among those who sat across the table from him. Rickover remained on active duty as a flag officer for nearly 30 years through repeated Congressional intervention overriding retirement policies.
+
+Under his watch, the Navy accumulated more than 3,000 ship-years of accident-free nuclear reactor operations.`,
+    facts: ["USNA Class of 1922","USS Nautilus (1955): world's first nuclear-powered warship","Director of Naval Reactors for over 30 years","Personally interviewed every nuclear submarine candidate","Future President Jimmy Carter was among his interviewees","3,000+ ship-years of accident-free naval nuclear operations"],
+    page: 'rickover.html'
   },
   mahan: {
-    name: "Mahan Hall", type: "Academic Building", year: "COMPLETED 1907",
-    short: "Named for the man whose pen reshaped navies across the world.",
-    body: `Mahan Hall honors Rear Admiral Alfred Thayer Mahan, whose 1890 masterwork The Influence of Sea Power upon History reshaped how navies and statesmen worldwide understood maritime power.
+    name: "Mahan Hall", type: "Historic Building", year: "COMPLETED 1907",
+    short: "Named for the man whose pen reshaped navies across the entire world.",
+    body: `Alfred Thayer Mahan's 1890 masterwork, The Influence of Sea Power upon History, is arguably the most consequential book ever written by an American naval officer. Its argument — that sea power determined the rise and fall of great nations — was immediately adopted as doctrine by Germany, Japan, Britain, and the United States. Kaiser Wilhelm II ordered a copy placed in every German naval mess. Japan's Imperial Navy studied it as a strategic bible. Theodore Roosevelt used Mahan's ideas to drive American naval expansion.
 
-His ideas fueled the naval buildups of Germany, Japan, Great Britain, and the United States before World War I. Theodore Roosevelt was among his most fervent admirers.`,
-    facts: ["Named for Rear Admiral Alfred Thayer Mahan",'"The Influence of Sea Power upon History" (1890)',"Reshaped global naval strategy","TR was one of his greatest admirers","Original 1907 Beaux-Arts building on the Yard"]
+Designed by Ernest Flagg in the Beaux-Arts style and opened in 1907, Mahan Hall served as the Academy's main library for 66 years. When Nimitz Library opened in 1973, it became a lecture hall and theater venue — today home to the USNA Masqueraders. The original Hart Room reading hall still exists within.`,
+    facts: ["Named for Rear Admiral Alfred Thayer Mahan (1840–1914)","'The Influence of Sea Power upon History' (1890) reshaped global naval strategy","Kaiser Wilhelm ordered copies in every German naval officers' mess","Designed by Ernest Flagg, Beaux-Arts style, completed 1907","Served as USNA's main library from 1907 to 1973","Today houses the USNA Masqueraders theater company"],
+    page: 'mahan.html'
   },
   maury: {
     name: "Maury Hall", type: "Academic Building", year: "COMPLETED 1964",
@@ -403,11 +439,47 @@ His charts shortened the New York to San Francisco voyage by 47 days. He also id
   },
   nimitz: {
     name: "Nimitz Library", type: "Library", year: "COMPLETED 1973",
-    short: "Named for the admiral who led America's Navy from Pearl Harbor to V-J Day.",
-    body: `The Nimitz Library honors Fleet Admiral Chester W. Nimitz, USNA Class of 1905, who led American naval forces to total victory over Japan in the Pacific during World War II.
+    short: "Named for the admiral who led America from Pearl Harbor to V-J Day.",
+    body: `Chester W. Nimitz, USNA Class of 1905, graduated seventh in a class of 114 and became the face of American naval victory in the Pacific. On December 31, 1941 — three weeks after Pearl Harbor — he assumed command of a shattered fleet. What followed was the most sweeping naval campaign in history.
 
-Arriving in Hawaii on Christmas Day 1941 to take command of a devastated fleet, Nimitz led the Navy through Midway, Guadalcanal, the Philippine Sea, and finally Japan's surrender aboard USS Missouri on September 2, 1945.`,
-    facts: ["Named for Fleet Admiral Chester Nimitz (1905)","Commander in Chief, Pacific Fleet (CINCPAC)","Led Navy from Pearl Harbor to V-J Day","Accepted Japan's surrender on USS Missouri","Library houses Nimitz's personal papers"]
+Nimitz orchestrated Midway, Guadalcanal, the Philippine Sea, Leyte Gulf, Iwo Jima, and Okinawa — promoting bold commanders and maintaining calm leadership through three and a half years of the most intense maritime combat in history. On September 2, 1945, he signed Japan's Instrument of Surrender aboard USS Missouri in Tokyo Bay.
+
+One of only four Americans ever promoted to the five-star rank of Fleet Admiral, Nimitz is perhaps the most natural figure to have USNA's primary library named in his honor. The library houses his personal papers.`,
+    facts: ["USNA Class of 1905, graduated 7th in a class of 114","Assumed command of the Pacific Fleet on December 31, 1941","Signed Japan's Instrument of Surrender on USS Missouri, September 2, 1945","One of only four U.S. officers ever to hold the rank of Fleet Admiral","Library completed 1973, designed by John Carl Warnecke","Houses the Chester W. Nimitz Papers"],
+    page: 'nimitz.html'
+  },
+  hopper: {
+    name: "Hopper Hall", type: "Academic Building", year: "OPENED 2020",
+    short: "Named for the Navy admiral who invented the compiler and helped create COBOL.",
+    body: `Rear Admiral Grace Murray Hopper (1906–1992) was a mathematician, Navy officer, and computing pioneer who fundamentally changed how humans interact with computers. During World War II she joined the WAVES and became one of the first three programmers on the Harvard Mark I — one of the earliest electromechanical computers. She developed the first compiler — a program that translates human-readable code into machine instructions — and led the effort to create COBOL (1959), one of the most widely used programming languages in history.
+
+Hopper retired from the Navy in 1986 at age 79 as the oldest serving officer in the U.S. armed forces. Her motto: "It's easier to ask forgiveness than to get permission."
+
+The Grace Hopper Center for Cyber Security Studies opened October 15, 2020. Designed by Skidmore, Owings & Merrill, built at approximately $143 million — the first building at any US military service academy dedicated to cybersecurity, and the first academic building at a major service academy named for a woman.`,
+    facts: ["First building at any US service academy dedicated to cybersecurity","First academic building at a major US service academy named for a woman","Hopper was one of the first programmers on the Harvard Mark I","Developed the first compiler; helped create COBOL (1959)","Retired in 1986 at age 79 as the oldest active officer in the US armed forces","206,400 sq ft · ~$143 million · SOM architects · opened October 15, 2020"],
+    page: 'hopper.html'
+  },
+  leahy: {
+    name: "Leahy Hall", type: "Academic Building", year: "NAMED 20TH CENTURY",
+    short: "Named for the first five-star officer in US history — FDR's personal chief of staff.",
+    body: `William D. Leahy, USNA Class of 1897, holds a distinction few know: he was the first officer in American military history to receive five-star rank. Promoted to Fleet Admiral on December 15, 1944 — senior by date of commission to Nimitz, Halsey, King, MacArthur, and Eisenhower — Leahy was the man who coordinated them all.
+
+As Chief of Staff to President Franklin Roosevelt, he presided over the Joint Chiefs and attended every major Allied summit: Tehran, Yalta, and Potsdam. Before that, FDR sent him as U.S. Ambassador to Vichy France — one of the most politically complex diplomatic assignments of the war — where he worked to limit French collaboration with Nazi Germany.
+
+As a Fleet Admiral, Leahy could not retire — the rank carries no mandatory retirement. He remained on active duty until his death on July 20, 1959. Leahy Hall today houses USNA's Department of Foreign Languages.`,
+    facts: ["First officer in US history to receive five-star rank (December 15, 1944)","FDR's personal Chief of Staff, presiding over the Joint Chiefs of Staff","Attended Tehran, Yalta, and Potsdam — every major Allied summit","Served as US Ambassador to Vichy France (1940–1942)","USNA Class of 1897; taught physics at USNA (1907–1909)","Remained on active duty until his death, July 20, 1959"],
+    page: 'leahy.html'
+  },
+  herndon: {
+    name: "Herndon Monument", type: "Monument", year: "ERECTED 1860",
+    short: "A granite obelisk, fifty pounds of grease, and the most iconic day of plebe year.",
+    body: `The 21-foot granite obelisk honors Commander William Lewis Herndon, who died on September 12, 1857 when the mail steamer SS Central America foundered in a hurricane off North Carolina. Herndon calmly organized passengers and crew, transferred 153 women and children to a passing rescue vessel, then dressed in his full-dress uniform, took his position on the paddlebox, and went down with his ship. He was 43. The Class of 1860 commissioned the monument in his memory.
+
+Remarkably, Herndon's 1854 account of exploring the Amazon Valley is credited by Mark Twain as one of the inspirations for Twain's own riverboat career.
+
+The Herndon Climb began in 1940 as a simple end-of-plebe-year ceremony. By 1949 the monument was being greased; by 1962 a plebe "dixie cup" cover was placed on top. Today ~50 pounds of shortening are applied, and the entire plebe class works together until one member reaches the top and swaps the dixie cup for an officer's cover — and plebe year is over.`,
+    facts: ["Herndon died September 12, 1857 going down with SS Central America","Transferred 153 women and children to safety before going down with the ship","His 1854 Amazon account inspired a young Mark Twain","21-foot granite obelisk, commissioned by the Class of 1860","Herndon Climb tradition: began 1940 · greasing began 1949 · dixie cup added 1962","Tradition holds the midshipman who places the officer's cover will be the class's first admiral"],
+    page: 'herndon.html'
   }
 };
 
@@ -474,9 +546,25 @@ const FEATURES = [
       [38.9840, -76.4866], [38.9840, -76.4878]
     ]
   },
+  // new buildings
+  {
+    id: 'hopper', type: 'polygon',
+    coords: [
+      [38.9882, -76.4878], [38.9882, -76.4862],
+      [38.9874, -76.4862], [38.9874, -76.4878]
+    ]
+  },
+  {
+    id: 'leahy', type: 'polygon',
+    coords: [
+      [38.9872, -76.4898], [38.9872, -76.4882],
+      [38.9864, -76.4882], [38.9864, -76.4898]
+    ]
+  },
   // ── MONUMENTS (circle markers) ──
   { id: 'tecumseh', type: 'marker', coords: [38.9831, -76.4842] },
-  { id: 'tripoli',  type: 'marker', coords: [38.9839, -76.4854] }
+  { id: 'tripoli',  type: 'marker', coords: [38.9839, -76.4854] },
+  { id: 'herndon',  type: 'marker', coords: [38.9844, -76.4862] }
 ];
 
 // ══════════════════════════════════════════════
@@ -528,6 +616,9 @@ function openPanel(id, layer) {
   d.facts.forEach(f => { const li = document.createElement('li'); li.textContent = f; ul.appendChild(li); });
   panel.classList.add('visible');
   panel.scrollTop = 0;
+  const histLink = document.getElementById('panel-history-link');
+  if (d.page) { histLink.href = d.page; histLink.style.display = 'flex'; }
+  else { histLink.style.display = 'none'; }
   if (activeLayer && activeLayer !== layer) resetStyle(activeLayer);
   activeLayer = layer;
 }

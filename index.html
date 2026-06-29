@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Yard · USNA Class of 2010</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep:   #040D1C;
+      --navy-bg:     #061224;
+      --navy-mid:    #0A1E38;
+      --navy-panel:  #0C2040;
+      --gold:        #C9A227;
+      --gold-light:  #E8C84A;
+      --gold-bright: #FFD870;
+      --gold-dim:    #7A6418;
+      --gold-pale:   #F0E4B0;
+      --water:       #06132A;
+      --land:        #08180D;
+      --text:        #E8D8A0;
+      --text-dim:    #8A9AA8;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html, body {
+      background: var(--navy-deep);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── PAGE LOAD ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to   { opacity:1; }
+    }
+    @keyframes shimmer {
+      0%,100% { opacity:0.18; }
+      50%      { opacity:0.35; }
+    }
+    @keyframes pulseGold {
+      0%,100% { filter: drop-shadow(0 0 3px rgba(201,162,39,0.5)); }
+      50%      { filter: drop-shadow(0 0 8px rgba(201,162,39,0.9)); }
+    }
+
+    .anim-1 { animation: fadeUp 0.9s ease both; }
+    .anim-2 { animation: fadeUp 0.9s 0.15s ease both; }
+    .anim-3 { animation: fadeUp 0.9s 0.3s ease both; }
+    .anim-4 { animation: fadeIn 1.2s 0.5s ease both; }
+
+    /* ── HEADER ── */
+    .site-header {
+      text-align: center;
+      padding: 3.5rem 2rem 2.5rem;
+      background: linear-gradient(180deg, #020810 0%, var(--navy-bg) 100%);
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(201,162,39,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .rule-line {
+      height: 1px;
+      width: 120px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+    .rule-line.flip { background: linear-gradient(to left, transparent, var(--gold)); }
+    .rule-anchor { font-size: 1.1rem; color: var(--gold); opacity: 0.8; }
+    .class-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+    }
+
+    h1.site-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      text-shadow:
+        0 0 40px rgba(232,200,74,0.35),
+        0 0 90px rgba(201,162,39,0.12);
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .site-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.55rem, 1.8vw, 0.78rem);
+      letter-spacing: 0.45em;
+      color: var(--text-dim);
+    }
+
+    .anniversary-badge {
+      display: inline-block;
+      margin-top: 0.9rem;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.55rem, 1.4vw, 0.68rem);
+      letter-spacing: 0.32em;
+      color: var(--gold-dim);
+      border: 1px solid var(--gold-dim);
+      padding: 0.3rem 1.2rem;
+    }
+
+    /* ── HINT BAR ── */
+    .hint-bar {
+      text-align: center;
+      padding: 0.9rem 2rem;
+      background: var(--navy-bg);
+      border-bottom: 1px solid rgba(201,162,39,0.1);
+    }
+    .hint-bar p {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
+    .hint-bar span { color: var(--gold); font-style: normal; }
+
+    /* ── MAP SECTION ── */
+    .map-section {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+      padding: 1.25rem 1.25rem 2rem;
+      background: var(--navy-bg);
+      min-height: 500px;
+    }
+
+    .map-wrapper {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .map-frame {
+      border: 1px solid var(--gold-dim);
+      box-shadow:
+        0 0 0 4px var(--navy-mid),
+        0 0 0 5px rgba(122,100,24,0.4),
+        0 0 50px rgba(0,0,0,0.9);
+      background: var(--land);
+      position: relative;
+    }
+
+    #yard-map {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: crosshair;
+    }
+
+    /* ── SVG BUILDING & MONUMENT STYLES ── */
+    .bld {
+      fill: rgba(4,10,20,0.8);
+      stroke: var(--gold-dim);
+      stroke-width: 1.2;
+      transition: fill 0.25s, stroke 0.25s, filter 0.25s;
+    }
+
+    .building-group { cursor: pointer; }
+    .monument-group { cursor: pointer; }
+
+    .building-group:hover .bld,
+    .building-group.active .bld {
+      fill: rgba(201,162,39,0.18);
+      stroke: var(--gold-light);
+      stroke-width: 1.8;
+      filter: drop-shadow(0 0 5px rgba(201,162,39,0.5));
+    }
+
+    .bld-hit {
+      fill: transparent;
+      stroke: none;
+      pointer-events: all;
+    }
+
+    .bld-label {
+      font-family: 'Cinzel', serif;
+      font-size: 6.2px;
+      fill: rgba(138,154,168,0.7);
+      text-anchor: middle;
+      pointer-events: none;
+      letter-spacing: 0.06em;
+      transition: fill 0.25s;
+    }
+    .building-group:hover .bld-label,
+    .building-group.active .bld-label {
+      fill: var(--gold-light);
+    }
+
+    .monument-icon {
+      transition: fill 0.25s, filter 0.25s;
+    }
+    .monument-group:hover .monument-icon,
+    .monument-group.active .monument-icon {
+      animation: pulseGold 1.4s ease-in-out infinite;
+    }
+
+    .monument-label {
+      font-family: 'Cinzel', serif;
+      font-size: 6px;
+      fill: rgba(122,100,24,0.9);
+      text-anchor: middle;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+      transition: fill 0.25s;
+    }
+    .monument-group:hover .monument-label,
+    .monument-group.active .monument-label {
+      fill: var(--gold-light);
+    }
+
+    /* ── INFO PANEL ── */
+    .info-panel {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--navy-panel);
+      border-left: 3px solid var(--gold);
+      border-top: 1px solid var(--gold-dim);
+      border-right: 1px solid var(--gold-dim);
+      border-bottom: 1px solid var(--gold-dim);
+      padding: 1.75rem 1.5rem 2rem;
+      position: relative;
+      max-height: 680px;
+      overflow-y: auto;
+      margin-left: 1.25rem;
+      opacity: 0;
+      transform: translateX(16px);
+      pointer-events: none;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold-dim) var(--navy-mid);
+    }
+    .info-panel::-webkit-scrollbar { width: 3px; }
+    .info-panel::-webkit-scrollbar-track { background: var(--navy-mid); }
+    .info-panel::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+    .info-panel.visible {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    .panel-close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      background: none;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold-dim);
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      font-family: 'Cinzel', serif;
+    }
+    .panel-close:hover {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border-color: var(--gold);
+    }
+
+    .panel-type {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      color: var(--gold-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .panel-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+
+    .panel-year {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .panel-rule {
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 0.9rem;
+    }
+
+    .panel-short {
+      font-style: italic;
+      color: var(--gold-pale);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 0.9rem;
+    }
+
+    .panel-body {
+      font-size: 0.84rem;
+      line-height: 1.75;
+      color: rgba(232,216,160,0.82);
+      margin-bottom: 1.25rem;
+      white-space: pre-line;
+    }
+
+    .panel-facts {
+      list-style: none;
+      border-top: 1px solid rgba(201,162,39,0.18);
+      padding-top: 0.9rem;
+    }
+    .panel-facts li {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      padding: 0.28rem 0 0.28rem 1.1rem;
+      border-bottom: 1px solid rgba(201,162,39,0.07);
+      position: relative;
+    }
+    .panel-facts li::before {
+      content: '⚓';
+      position: absolute;
+      left: 0;
+      font-size: 0.48rem;
+      top: 0.42rem;
+      color: var(--gold-dim);
+    }
+
+    /* ── TOOLTIP ── */
+    .map-tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: rgba(4,12,28,0.97);
+      border: 1px solid var(--gold);
+      padding: 0.5rem 0.75rem;
+      z-index: 999;
+      max-width: 210px;
+      opacity: 0;
+      transition: opacity 0.12s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .map-tooltip.visible { opacity: 1; }
+    .tip-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.18rem;
+    }
+    .tip-desc {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown-section {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(201,162,39,0.15);
+      background: linear-gradient(0deg, #020810 0%, var(--navy-bg) 100%);
+    }
+
+    .countdown-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.42em;
+      color: var(--gold-dim);
+      margin-bottom: 2rem;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cd-unit { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+
+    .cd-num {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      min-width: 2.5ch;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(232,200,74,0.25);
+    }
+
+    .cd-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+    }
+
+    .cd-sep {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: rgba(122,100,24,0.5);
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(201,162,39,0.12);
+      background: #020810;
+    }
+
+    .footer-motto {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-rule {
+      width: 50px;
+      height: 1px;
+      background: var(--gold-dim);
+      margin: 0.6rem auto;
+    }
+
+    .footer-note {
+      font-size: 0.72rem;
+      color: rgba(138,154,168,0.35);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .map-section { flex-direction: column; padding: 0.75rem; }
+      .info-panel {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+        max-height: none;
+        transform: translateY(16px);
+      }
+      .info-panel.visible { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header class="site-header">
+  <div class="header-rule anim-1">
+    <div class="rule-line"></div>
+    <span class="rule-anchor">⚓</span>
+    <span class="class-badge">CLASS OF 2010</span>
+    <span class="rule-anchor">⚓</span>
+    <div class="rule-line flip"></div>
+  </div>
+  <h1 class="site-title anim-2">THE YARD</h1>
+  <p class="site-subtitle anim-2">UNITED STATES NAVAL ACADEMY &nbsp;·&nbsp; ANNAPOLIS, MARYLAND</p>
+  <span class="anniversary-badge anim-3">TWENTIETH ANNIVERSARY &nbsp;·&nbsp; MMXXX</span>
+</header>
+
+<!-- ════════ HINT ════════ -->
+<div class="hint-bar anim-3">
+  <p>Hover any <span>building or monument</span> for a preview &nbsp;·&nbsp; <span>Click</span> to read its full story</p>
+</div>
+
+<!-- ════════ MAP + PANEL ════════ -->
+<section class="map-section anim-4">
+  <div class="map-wrapper">
+    <div class="map-frame">
+      <svg id="yard-map" viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Cartographic grid pattern -->
+          <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(201,162,39,0.055)" stroke-width="0.5"/>
+          </pattern>
+          <!-- River shimmer animation -->
+          <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#06132A"/>
+            <stop offset="50%"  stop-color="#081840"/>
+            <stop offset="100%" stop-color="#06132A"/>
+          </linearGradient>
+          <!-- Gold glow filter -->
+          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- ░░ BASE LAYERS ░░ -->
+
+        <!-- Deep background -->
+        <rect x="0" y="0" width="1000" height="680" fill="#06122A"/>
+
+        <!-- Land / The Yard -->
+        <path d="M 35,35 L 965,35 L 965,500 Q 900,490 800,485 Q 720,480 650,488 Q 560,498 480,495 Q 380,490 310,500 Q 250,507 180,505 Q 100,502 35,510 Z"
+              fill="#09180E"/>
+
+        <!-- Grid overlay -->
+        <rect x="0" y="0" width="1000" height="680" fill="url(#grid)"/>
+
+        <!-- Severn River -->
+        <path d="M 0,680 L 0,518 Q 80,510 160,510 Q 240,510 310,504 Q 380,496 480,499 Q 570,502 660,494 Q 740,487 820,486 Q 880,485 965,492 L 965,680 Z"
+              fill="url(#riverGrad)"/>
+
+        <!-- Hospital Point peninsula jutting south into river -->
+        <path d="M 700,492 Q 735,492 758,508 Q 776,521 770,540 Q 763,554 746,555 Q 726,555 708,542 Q 693,528 700,492 Z"
+              fill="#09180E"/>
+        <path d="M 700,492 Q 735,492 758,508 Q 776,521 770,540 Q 763,554 746,555 Q 726,555 708,542 Q 693,528 700,492 Z"
+              fill="none" stroke="rgba(201,162,39,0.2)" stroke-width="0.8"/>
+
+        <!-- River shimmer lines -->
+        <path d="M 80,540 Q 200,532 320,538 Q 420,543 520,537" fill="none" stroke="rgba(26,80,160,0.2)" stroke-width="2" stroke-dasharray="6,8"/>
+        <path d="M 60,558 Q 180,550 300,555" fill="none" stroke="rgba(26,80,160,0.15)" stroke-width="1.5" stroke-dasharray="4,10"/>
+        <path d="M 600,520 Q 700,514 820,518 Q 880,520 960,525" fill="none" stroke="rgba(26,80,160,0.18)" stroke-width="1.5" stroke-dasharray="5,9"/>
+
+        <!-- Seawall -->
+        <path d="M 55,510 Q 160,504 310,500 Q 420,496 520,498 Q 620,500 720,492 Q 810,486 965,493"
+              fill="none" stroke="rgba(201,162,39,0.3)" stroke-width="1.8"/>
+
+        <!-- ░░ OPEN FIELDS & GROUNDS ░░ -->
+
+        <!-- Dewey Field (parade ground) -->
+        <rect x="400" y="455" width="250" height="55" fill="rgba(12,28,16,0.7)" stroke="rgba(201,162,39,0.1)" stroke-width="0.5" rx="1"/>
+        <text x="525" y="487" font-family="'Cinzel',serif" font-size="5.5" fill="rgba(100,140,100,0.35)" text-anchor="middle" letter-spacing="0.12em">DEWEY FIELD</text>
+
+        <!-- Athletic fields (northwest) -->
+        <rect x="50" y="118" width="170" height="100" fill="rgba(12,28,16,0.7)" stroke="rgba(201,162,39,0.08)" stroke-width="0.5" rx="1"/>
+        <text x="135" y="172" font-family="'Cinzel',serif" font-size="5.5" fill="rgba(100,140,100,0.32)" text-anchor="middle" letter-spacing="0.1em">ATHLETIC FIELDS</text>
+
+        <!-- Farragut Field -->
+        <rect x="58" y="435" width="105" height="60" fill="rgba(12,28,16,0.6)" stroke="rgba(201,162,39,0.08)" stroke-width="0.5" rx="1"/>
+        <text x="110" y="468" font-family="'Cinzel',serif" font-size="5" fill="rgba(100,140,100,0.3)" text-anchor="middle" letter-spacing="0.08em">FARRAGUT</text>
+
+        <!-- ░░ WALKWAYS ░░ -->
+        <!-- Stribling Walk (main north-south) -->
+        <line x1="480" y1="58" x2="480" y2="458" stroke="rgba(201,162,39,0.12)" stroke-width="2" stroke-dasharray="5,4"/>
+        <!-- East-West main walk -->
+        <line x1="165" y1="265" x2="810" y2="265" stroke="rgba(201,162,39,0.1)" stroke-width="1.5" stroke-dasharray="4,5"/>
+        <!-- Upshur Walk -->
+        <line x1="165" y1="385" x2="810" y2="385" stroke="rgba(201,162,39,0.1)" stroke-width="1.5" stroke-dasharray="4,5"/>
+        <!-- Diagonal / Chapel walk -->
+        <line x1="275" y1="210" x2="370" y2="280" stroke="rgba(201,162,39,0.08)" stroke-width="1.2" stroke-dasharray="3,5"/>
+
+        <!-- Tecumseh Court (open paved area) -->
+        <rect x="573" y="260" width="108" height="28" fill="rgba(10,22,14,0.5)" stroke="rgba(201,162,39,0.1)" stroke-width="0.5"/>
+        <text x="627" y="277" font-family="'Cinzel',serif" font-size="5" fill="rgba(138,154,168,0.32)" text-anchor="middle" letter-spacing="0.07em">TECUMSEH COURT</text>
+
+        <!-- ░░ CONTEXT BUILDINGS (non-interactive) ░░ -->
+
+        <!-- Halsey Field House -->
+        <rect x="55" y="130" width="108" height="60" fill="rgba(6,14,24,0.65)" stroke="rgba(122,100,24,0.22)" stroke-width="0.8" rx="1"/>
+        <text x="109" y="163" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:5.2px">HALSEY</text>
+        <text x="109" y="171" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:5.2px">FIELD HOUSE</text>
+
+        <!-- Lejeune Hall -->
+        <rect x="155" y="432" width="88" height="52" fill="rgba(6,14,24,0.65)" stroke="rgba(122,100,24,0.22)" stroke-width="0.8" rx="1"/>
+        <text x="199" y="461" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:5.2px">LEJEUNE</text>
+        <text x="199" y="469" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:5.2px">HALL</text>
+
+        <!-- MacDonough Hall -->
+        <rect x="410" y="210" width="65" height="42" fill="rgba(6,14,24,0.65)" stroke="rgba(122,100,24,0.22)" stroke-width="0.8" rx="1"/>
+        <text x="442" y="234" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:4.8px">MACDONOUGH</text>
+        <text x="442" y="242" class="bld-label" style="fill:rgba(100,115,130,0.4); font-size:4.8px">HALL</text>
+
+        <!-- ░░ INTERACTIVE BUILDINGS ░░ -->
+
+        <!-- ── CHAUVENET HALL ── -->
+        <g class="building-group" data-id="chauvenet">
+          <rect class="bld-hit" x="148" y="185" width="98" height="58"/>
+          <rect class="bld" x="150" y="187" width="95" height="55" rx="1"/>
+          <text class="bld-label" x="197" y="217">CHAUVENET</text>
+          <text class="bld-label" x="197" y="226">HALL</text>
+        </g>
+
+        <!-- ── MICHELSON HALL ── -->
+        <g class="building-group" data-id="michelson">
+          <rect class="bld-hit" x="148" y="258" width="98" height="60"/>
+          <rect class="bld" x="150" y="260" width="95" height="57" rx="1"/>
+          <text class="bld-label" x="197" y="291">MICHELSON</text>
+          <text class="bld-label" x="197" y="300">HALL</text>
+        </g>
+
+        <!-- ── RICKOVER HALL ── -->
+        <g class="building-group" data-id="rickover">
+          <rect class="bld-hit" x="140" y="338" width="110" height="72"/>
+          <rect class="bld" x="142" y="340" width="107" height="68" rx="1"/>
+          <text class="bld-label" x="195" y="375">RICKOVER</text>
+          <text class="bld-label" x="195" y="384">HALL</text>
+        </g>
+
+        <!-- ── MAHAN HALL ── -->
+        <g class="building-group" data-id="mahan">
+          <rect class="bld-hit" x="272" y="203" width="85" height="55"/>
+          <rect class="bld" x="274" y="205" width="82" height="52" rx="1"/>
+          <text class="bld-label" x="315" y="233">MAHAN</text>
+          <text class="bld-label" x="315" y="242">HALL</text>
+        </g>
+
+        <!-- ── MAURY HALL ── -->
+        <g class="building-group" data-id="maury">
+          <rect class="bld-hit" x="272" y="308" width="85" height="58"/>
+          <rect class="bld" x="274" y="310" width="82" height="55" rx="1"/>
+          <text class="bld-label" x="315" y="341">MAURY</text>
+          <text class="bld-label" x="315" y="350">HALL</text>
+        </g>
+
+        <!-- ── NIMITZ LIBRARY ── -->
+        <g class="building-group" data-id="nimitz">
+          <rect class="bld-hit" x="380" y="390" width="135" height="78"/>
+          <rect class="bld" x="382" y="392" width="132" height="75" rx="1"/>
+          <text class="bld-label" x="448" y="430">NIMITZ</text>
+          <text class="bld-label" x="448" y="440">LIBRARY</text>
+        </g>
+
+        <!-- ── BANCROFT HALL (H-shape) ── -->
+        <g class="building-group" data-id="bancroft">
+          <!-- Invisible hit rect covering full bounding box -->
+          <rect class="bld-hit" x="525" y="280" width="230" height="128"/>
+          <!-- H polygon -->
+          <polygon class="bld"
+            points="528,282 752,282 752,320 678,320 678,362 752,362 752,408 528,408 528,362 598,362 598,320 528,320"
+            rx="1"/>
+          <text class="bld-label" x="640" y="347">BANCROFT</text>
+          <text class="bld-label" x="640" y="357">HALL</text>
+        </g>
+
+        <!-- ── NAVAL ACADEMY CHAPEL ── -->
+        <g class="building-group" data-id="chapel">
+          <rect class="bld-hit" x="215" y="185" width="72" height="88"/>
+          <!-- Chapel body -->
+          <rect class="bld" x="220" y="210" width="55" height="60" rx="1"/>
+          <!-- Dome (circle at top) -->
+          <circle class="bld" cx="247" cy="210" r="22"/>
+          <!-- Cross on dome -->
+          <line x1="247" y1="196" x2="247" y2="202" stroke="rgba(201,162,39,0.5)" stroke-width="1.2" pointer-events="none"/>
+          <line x1="244" y1="198" x2="250" y2="198" stroke="rgba(201,162,39,0.5)" stroke-width="1.2" pointer-events="none"/>
+          <text class="bld-label" x="247" y="284">NAVAL ACADEMY</text>
+          <text class="bld-label" x="247" y="293">CHAPEL</text>
+        </g>
+
+        <!-- ░░ MONUMENTS ░░ -->
+
+        <!-- ── TECUMSEH MONUMENT ── -->
+        <g class="monument-group" data-id="tecumseh">
+          <rect class="bld-hit" x="610" y="252" width="32" height="38"/>
+          <!-- Star/diamond shape -->
+          <polygon class="monument-icon"
+            points="626,254 632,264 626,276 620,264"
+            fill="var(--gold-dim)" stroke="var(--gold)" stroke-width="1.5"/>
+          <line x1="626" y1="251" x2="626" y2="279" stroke="rgba(201,162,39,0.4)" stroke-width="0.8" pointer-events="none"/>
+          <line x1="617" y1="264" x2="635" y2="264" stroke="rgba(201,162,39,0.4)" stroke-width="0.8" pointer-events="none"/>
+          <text class="monument-label" x="626" y="289">TECUMSEH</text>
+        </g>
+
+        <!-- ── TRIPOLI MONUMENT ── -->
+        <g class="monument-group" data-id="tripoli">
+          <rect class="bld-hit" x="460" y="308" width="32" height="55"/>
+          <!-- Obelisk shape -->
+          <polygon class="monument-icon"
+            points="476,312 480,318 480,350 476,354 472,350 472,318"
+            fill="var(--gold-dim)" stroke="var(--gold)" stroke-width="1.2"/>
+          <!-- Cap triangle -->
+          <polygon class="monument-icon"
+            points="476,308 481,316 471,316"
+            fill="var(--gold)" stroke="none"/>
+          <text class="monument-label" x="476" y="362">TRIPOLI</text>
+          <text class="monument-label" x="476" y="371">MONUMENT</text>
+        </g>
+
+        <!-- ░░ MAP ANNOTATIONS ░░ -->
+
+        <!-- Severn River label -->
+        <text font-family="'EB Garamond',serif" font-style="italic" font-size="9.5"
+              fill="rgba(80,120,180,0.38)" text-anchor="middle" letter-spacing="0.14em"
+              transform="translate(540,572) rotate(-2)">SEVERN RIVER</text>
+
+        <!-- Chesapeake Bay -->
+        <text font-family="'EB Garamond',serif" font-style="italic" font-size="7.5"
+              fill="rgba(80,120,180,0.28)" text-anchor="middle"
+              x="910" y="555">CHESAPEAKE</text>
+        <text font-family="'EB Garamond',serif" font-style="italic" font-size="7.5"
+              fill="rgba(80,120,180,0.28)" text-anchor="middle"
+              x="910" y="565">BAY →</text>
+
+        <!-- Main Gate -->
+        <text font-family="'Cinzel',serif" font-size="6.5" fill="rgba(201,162,39,0.35)"
+              text-anchor="middle" letter-spacing="0.12em" x="480" y="48">↑ GATE 1 · MARYLAND AVE</text>
+
+        <!-- Academic cluster label -->
+        <text font-family="'Cinzel',serif" font-size="5.5" fill="rgba(138,154,168,0.28)"
+              text-anchor="middle" letter-spacing="0.1em" x="218" y="402">ACADEMIC</text>
+        <text font-family="'Cinzel',serif" font-size="5.5" fill="rgba(138,154,168,0.28)"
+              text-anchor="middle" letter-spacing="0.1em" x="218" y="411">QUAD</text>
+
+        <!-- Hospital Point label -->
+        <text font-family="'EB Garamond',serif" font-style="italic" font-size="6"
+              fill="rgba(138,154,168,0.3)" text-anchor="middle"
+              transform="translate(737,525) rotate(-40)">Hospital Pt.</text>
+
+        <!-- ░░ COMPASS ROSE ░░ -->
+        <g transform="translate(905,598)">
+          <circle cx="0" cy="0" r="40" fill="rgba(4,10,20,0.7)" stroke="rgba(201,162,39,0.18)" stroke-width="1"/>
+          <circle cx="0" cy="0" r="5" fill="none" stroke="rgba(201,162,39,0.4)" stroke-width="0.8"/>
+          <!-- N (gold) -->
+          <polygon points="0,-34 -4,-14 0,-20 4,-14" fill="var(--gold)"/>
+          <!-- S -->
+          <polygon points="0,34 -3,14 0,20 3,14" fill="rgba(201,162,39,0.3)"/>
+          <!-- E -->
+          <polygon points="34,0 14,-3 20,0 14,3" fill="rgba(201,162,39,0.3)"/>
+          <!-- W -->
+          <polygon points="-34,0 -14,-3 -20,0 -14,3" fill="rgba(201,162,39,0.3)"/>
+          <!-- Intercardinal tick marks -->
+          <line x1="22" y1="-22" x2="18" y2="-18" stroke="rgba(201,162,39,0.25)" stroke-width="0.8"/>
+          <line x1="22" y1="22" x2="18" y2="18" stroke="rgba(201,162,39,0.25)" stroke-width="0.8"/>
+          <line x1="-22" y1="22" x2="-18" y2="18" stroke="rgba(201,162,39,0.25)" stroke-width="0.8"/>
+          <line x1="-22" y1="-22" x2="-18" y2="-18" stroke="rgba(201,162,39,0.25)" stroke-width="0.8"/>
+          <!-- Cardinal labels -->
+          <text font-family="'Cinzel',serif" font-size="8.5" fill="var(--gold)" text-anchor="middle" x="0" y="-39">N</text>
+          <text font-family="'Cinzel',serif" font-size="6" fill="rgba(201,162,39,0.45)" text-anchor="middle" x="0" y="47">S</text>
+          <text font-family="'Cinzel',serif" font-size="6" fill="rgba(201,162,39,0.45)" text-anchor="middle" x="43" y="3">E</text>
+          <text font-family="'Cinzel',serif" font-size="6" fill="rgba(201,162,39,0.45)" text-anchor="middle" x="-43" y="3">W</text>
+        </g>
+
+        <!-- ░░ TITLE BLOCK ░░ -->
+        <rect x="38" y="586" width="182" height="68" fill="rgba(4,8,20,0.82)" stroke="rgba(201,162,39,0.2)" stroke-width="0.8"/>
+        <line x1="48" y1="596" x2="210" y2="596" stroke="rgba(201,162,39,0.2)" stroke-width="0.5"/>
+        <text font-family="'Cinzel',serif" font-size="8.5" fill="rgba(201,162,39,0.7)" text-anchor="middle"
+              letter-spacing="0.18em" x="129" y="611">UNITED STATES</text>
+        <text font-family="'Cinzel',serif" font-size="8.5" fill="rgba(201,162,39,0.7)" text-anchor="middle"
+              letter-spacing="0.18em" x="129" y="624">NAVAL ACADEMY</text>
+        <line x1="48" y1="630" x2="210" y2="630" stroke="rgba(201,162,39,0.15)" stroke-width="0.5"/>
+        <text font-family="'Cinzel',serif" font-size="5.8" fill="rgba(138,154,168,0.4)" text-anchor="middle"
+              letter-spacing="0.12em" x="129" y="642">ANNAPOLIS, MARYLAND</text>
+        <text font-family="'Cinzel',serif" font-size="4.8" fill="rgba(100,115,130,0.28)" text-anchor="middle"
+              letter-spacing="0.1em" x="129" y="650">STYLIZED REPRESENTATION</text>
+
+        <!-- ░░ CORNER ORNAMENTS ░░ -->
+        <!-- TL -->
+        <path d="M 15,15 L 50,15 M 15,15 L 15,50" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="1"/>
+        <circle cx="15" cy="15" r="2" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="0.8"/>
+        <!-- TR -->
+        <path d="M 985,15 L 950,15 M 985,15 L 985,50" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="1"/>
+        <circle cx="985" cy="15" r="2" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="0.8"/>
+        <!-- BL -->
+        <path d="M 15,665 L 50,665 M 15,665 L 15,630" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="1"/>
+        <circle cx="15" cy="665" r="2" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="0.8"/>
+        <!-- BR -->
+        <path d="M 985,665 L 950,665 M 985,665 L 985,630" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="1"/>
+        <circle cx="985" cy="665" r="2" fill="none" stroke="rgba(201,162,39,0.28)" stroke-width="0.8"/>
+
+      </svg>
+    </div><!-- /.map-frame -->
+  </div><!-- /.map-wrapper -->
+
+  <!-- ════════ INFO PANEL ════════ -->
+  <div class="info-panel" id="info-panel">
+    <button class="panel-close" id="panel-close" aria-label="Close">×</button>
+    <p class="panel-type" id="panel-type"></p>
+    <h2 class="panel-name" id="panel-name"></h2>
+    <p class="panel-year" id="panel-year"></p>
+    <div class="panel-rule"></div>
+    <p class="panel-short" id="panel-short"></p>
+    <p class="panel-body" id="panel-body"></p>
+    <ul class="panel-facts" id="panel-facts"></ul>
+  </div>
+
+</section><!-- /.map-section -->
+
+<!-- ════════ TOOLTIP ════════ -->
+<div class="map-tooltip" id="tooltip" aria-hidden="true">
+  <div class="tip-name" id="tip-name"></div>
+  <div class="tip-desc" id="tip-desc"></div>
+</div>
+
+<!-- ════════ COUNTDOWN ════════ -->
+<section class="countdown-section">
+  <p class="countdown-heading">DAYS UNTIL THE 20TH REUNION &nbsp;·&nbsp; CLASS OF 2010 &nbsp;·&nbsp; MAY 2030</p>
+  <div class="countdown-grid">
+    <div class="cd-unit">
+      <span class="cd-num" id="cd-days">0000</span>
+      <span class="cd-lbl">DAYS</span>
+    </div>
+    <span class="cd-sep">·</span>
+    <div class="cd-unit">
+      <span class="cd-num" id="cd-hours">00</span>
+      <span class="cd-lbl">HOURS</span>
+    </div>
+    <span class="cd-sep">·</span>
+    <div class="cd-unit">
+      <span class="cd-num" id="cd-mins">00</span>
+      <span class="cd-lbl">MINUTES</span>
+    </div>
+    <span class="cd-sep">·</span>
+    <div class="cd-unit">
+      <span class="cd-num" id="cd-secs">00</span>
+      <span class="cd-lbl">SECONDS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+//  LOCATION DATA
+// ══════════════════════════════════════════════
+const LOCATIONS = {
+  bancroft: {
+    name: "Bancroft Hall",
+    type: "Academy Building",
+    year: "COMPLETED 1906",
+    short: "The world's largest dormitory — home to every midshipman at USNA.",
+    body: `Named for George Bancroft, the Secretary of the Navy who founded the Naval Academy in 1845, Bancroft Hall stands as the beating heart of every midshipman's life. Completed in 1906 by architects Cram, Goodhue & Ferguson in the Beaux-Arts style, "Mother B" is the world's largest dormitory — a single interconnected complex covering nearly 33 acres of floor space with over 1,700 rooms, 4.8 miles of corridors, and its own ZIP code (21412).
+
+Every midshipman lives within Bancroft's wings, organized by company. Inside, Memorial Hall preserves the battle flags of the naval service — including the famous "Don't Give Up the Ship" pennant from Commodore Perry's flagship at the Battle of Lake Erie — as a permanent reminder of what the Brigade is heir to.`,
+    facts: [
+      "World's largest dormitory",
+      "1,700+ rooms across 4.8 miles of corridors",
+      "Houses all ~4,400 midshipmen",
+      "Named for USNA founder George Bancroft",
+      "ZIP code: 21412"
+    ]
+  },
+  chapel: {
+    name: "Naval Academy Chapel",
+    type: "Landmark",
+    year: "COMPLETED 1908",
+    short: "A 200-foot dome, Tiffany glass, and the crypt of John Paul Jones.",
+    body: `The Naval Academy Chapel, completed in 1908, rises 200 feet above the Yard — its great green copper dome a landmark visible for miles across the Chesapeake Bay region. Designed by architect Ernest Flagg in the French Renaissance style, the Chapel serves as the Academy's spiritual heart.
+
+Beneath the marble floor lies the crypt of John Paul Jones, America's first great naval hero, whose immortal declaration — "I have not yet begun to fight!" — echoes through every midshipman's spirit. Jones's remains were brought from Paris in 1905 and rest in an ornate sarcophagus of black and white marble, inspired by Napoleon's tomb at Les Invalides.
+
+The interior features magnificent Tiffany stained glass windows, each depicting scenes of naval valor, and a Great Organ among the finest instruments in the country.`,
+    facts: [
+      "200-foot dome, visible for miles",
+      "Crypt of John Paul Jones beneath the nave",
+      "Tiffany stained glass windows throughout",
+      "Designed by architect Ernest Flagg",
+      "Site of thousands of Navy weddings"
+    ]
+  },
+  tecumseh: {
+    name: "Tecumseh Monument",
+    type: "Monument",
+    year: "INSTALLED 1866",
+    short: 'The "God of 2.0" — midshipmen\'s bronze patron of academic fortune.',
+    body: `The Tecumseh Monument is perhaps the most beloved icon of the entire Academy. Though the name is a misnomer, the bronze statue is actually a casting of "Tamanend," the figurehead from the 74-gun ship USS Delaware (1820). Tamanend was a celebrated Lenape chief known for peaceful wisdom — but midshipmen always called the figurehead "Tecumseh," and tradition made it permanent.
+
+Installed in Tecumseh Court in 1866, the statue was enshrined in superstition as the "God of 2.0" — the minimum GPA needed to avoid academic probation. Before major exams, midshipmen toss pennies at the statue hoping for good luck. Before every Army-Navy game, Tecumseh is dramatically painted in full battle regalia — quiver of arrows aimed toward West Point.`,
+    facts: [
+      "Actually depicts Lenape Chief Tamanend",
+      "Figurehead from USS Delaware (1820)",
+      '"God of 2.0" — luck deity for exams',
+      "Midshipmen toss pennies for good luck",
+      "Painted in battle gear before Army-Navy game"
+    ]
+  },
+  tripoli: {
+    name: "Tripoli Monument",
+    type: "Monument",
+    year: "CARVED 1806",
+    short: "The oldest US military monument — honoring heroes of the First Barbary War.",
+    body: `The Tripoli Monument holds the distinction of being the oldest US military monument still standing in the United States. Carved from Carrara marble in Livorno, Italy in 1806, it honors six naval officers who died in America's first foreign naval war.
+
+In 1804, Lieutenant Stephen Decatur led a daring raid into Tripoli harbor to burn the captured USS Philadelphia rather than let it serve the enemy. His brother James Decatur, along with Somers, Wadsworth, Caldwell, Israel, and Dorsey, paid the ultimate price. Originally erected at the Washington Navy Yard in 1808, the monument was moved to the Capitol grounds in 1831, then transferred to the Naval Academy in 1860.
+
+Its classical reliefs depict Fame, History, and Neptune — a timeless testament to sacrifice at sea.`,
+    facts: [
+      "Oldest US military monument still standing",
+      "Carved in Livorno, Italy, 1806",
+      "Honors six officers from Battle of Tripoli (1804)",
+      "Originally at the Washington Navy Yard",
+      "Moved to USNA in 1860"
+    ]
+  },
+  michelson: {
+    name: "Michelson Hall",
+    type: "Academic Building",
+    year: "COMPLETED 1968",
+    short: "Named for the first American Nobel Prize winner — USNA Class of 1873.",
+    body: `Michelson Hall honors Albert Abraham Michelson, USNA Class of 1873, who became not only the most decorated physicist produced by the Naval Academy but the first American scientist ever to win the Nobel Prize — in Physics, 1907.
+
+His greatest achievement was the Michelson-Morley experiment of 1887, which definitively disproved the existence of the luminiferous ether — the hypothetical medium through which light was thought to travel. This landmark null result became one of the foundational experiments that compelled Albert Einstein to develop the Special Theory of Relativity.
+
+Today, Michelson Hall houses the Physics Department, where midshipmen grapple with the same fundamental questions of nature that Michelson devoted his life to answering.`,
+    facts: [
+      "Named for USNA Class of 1873 alumnus",
+      "First American Nobel Prize winner (Physics, 1907)",
+      "Michelson-Morley experiment (1887) disproved the ether",
+      "Laid groundwork for Einstein's Special Relativity",
+      "Houses the USNA Physics Department"
+    ]
+  },
+  chauvenet: {
+    name: "Chauvenet Hall",
+    type: "Academic Building",
+    year: "COMPLETED 1968",
+    short: "Named for USNA's founding professor — a Yale graduate at age 16.",
+    body: `Chauvenet Hall commemorates William Chauvenet, the brilliant mathematician and astronomer who became the first full professor at the Naval School in Annapolis in 1845 — effectively the founding faculty member of what would become the Naval Academy.
+
+A prodigy who graduated from Yale at 16, Chauvenet shaped naval officer education for decades through his definitive textbooks in spherical astronomy, navigation, and geometry. The Chauvenet Prize — awarded by the Mathematical Association of America for outstanding mathematical exposition — bears his name to this day.
+
+Today the building houses the Mathematics Department, where midshipmen develop the analytical rigor essential to every warfare specialty.`,
+    facts: [
+      "Named for USNA's first full professor (1845)",
+      "Yale graduate at age 16",
+      "Definitive textbooks on astronomy and navigation",
+      "Chauvenet Prize (MAA) named for him",
+      "Houses the USNA Mathematics Department"
+    ]
+  },
+  rickover: {
+    name: "Rickover Hall",
+    type: "Academic Building",
+    year: "COMPLETED 1974",
+    short: "Named for the Father of the Nuclear Navy — who transformed sea warfare forever.",
+    body: `Rickover Hall bears the name of Admiral Hyman G. Rickover — the Father of the Nuclear Navy, and one of the most consequential and famously demanding figures in American naval history.
+
+Rickover spent over six decades in the Navy, retiring at age 82 after a special Act of Congress. He personally interviewed every candidate for nuclear submarine duty — including a young Jimmy Carter. His interview style was legendarily unorthodox, designed to find character and intellect under pressure, not rehearsed answers.
+
+Under his relentless drive, USS Nautilus became the world's first nuclear-powered submarine in 1954. His engineering philosophy — thorough, exacting, and absolutely uncompromising — lives in the systems engineering and naval architecture curriculum taught within these walls.`,
+    facts: [
+      'Named for "Father of the Nuclear Navy"',
+      "Rickover served 63 years in uniform",
+      "USS Nautilus (1954): first nuclear-powered submarine",
+      "Personally interviewed ALL nuclear officer candidates",
+      "His interviewees included President Jimmy Carter"
+    ]
+  },
+  mahan: {
+    name: "Mahan Hall",
+    type: "Academic Building",
+    year: "COMPLETED 1907",
+    short: "Named for the man whose pen reshaped navies across the entire world.",
+    body: `Mahan Hall honors Rear Admiral Alfred Thayer Mahan — arguably the most influential naval strategist and theorist of the modern era. His 1890 masterwork, The Influence of Sea Power upon History, reshaped how navies, governments, and statesmen across the globe understood maritime power.
+
+Mahan argued that national greatness depended on sea power: a strong battle fleet, overseas bases, and control of maritime chokepoints. His ideas directly fueled the naval buildups of Germany, Japan, Great Britain, and the United States before World War I. Theodore Roosevelt was among his most fervent readers and advocates.
+
+The building itself is one of the original Beaux-Arts structures on the Yard, completed in 1907 alongside Bancroft Hall — a fitting reminder that strategy lives in ideas as much as in ships.`,
+    facts: [
+      "Named for Rear Admiral Alfred Thayer Mahan",
+      '"The Influence of Sea Power upon History" (1890)',
+      "His ideas reshaped global naval strategy",
+      "Admired by TR, Kaiser Wilhelm II, and Tōgō Heihachirō",
+      "Original 1907 Beaux-Arts building on the Yard"
+    ]
+  },
+  maury: {
+    name: "Maury Hall",
+    type: "Academic Building",
+    year: "COMPLETED 1964",
+    short: "Named for the Pathfinder of the Seas — father of modern oceanography.",
+    body: `Maury Hall takes its name from Matthew Fontaine Maury — "The Pathfinder of the Seas" — one of the most transformative scientific minds in American naval history.
+
+Maury's systematic analysis of thousands of ships' logs allowed him to produce the first comprehensive charts of ocean winds and currents in the 1840s and '50s. His Physical Geography of the Sea (1855) is considered the first textbook of modern oceanography. His charts alone shortened the voyage from New York to San Francisco by 47 days — a revolutionary achievement before the Panama Canal existed.
+
+Maury also identified the mid-Atlantic "telegraphic plateau" that made the first transatlantic telegraph cable feasible. Today, Maury Hall houses the Electrical and Computer Engineering Department — a fitting tribute to a man who mastered invisible forces to command the seas.`,
+    facts: [
+      '"Pathfinder of the Seas"',
+      "Created first ocean wind and current charts",
+      "Physical Geography of the Sea (1855)",
+      "Shortened NY–San Francisco voyage by 47 days",
+      "Houses USNA Electrical & Computer Engineering"
+    ]
+  },
+  nimitz: {
+    name: "Nimitz Library",
+    type: "Library",
+    year: "COMPLETED 1973",
+    short: "Named for the admiral who led America's Navy from Pearl Harbor to V-J Day.",
+    body: `The Nimitz Library honors Fleet Admiral Chester W. Nimitz, USNA Class of 1905 — the commander who led American naval forces to total victory over Japan in the Pacific during World War II.
+
+After the catastrophe at Pearl Harbor on December 7, 1941, Nimitz arrived in Hawaii on Christmas Day to take command of a devastated fleet. What followed was history's greatest naval comeback: Coral Sea, Midway, Guadalcanal, the Philippine Sea, Leyte Gulf — and finally, Japan's formal surrender aboard his flagship USS Missouri on September 2, 1945.
+
+Nimitz was renowned for his unshakeable calm, his genuine care for his sailors, and his ability to trust brilliant subordinates like Spruance and Halsey. The library houses over 400,000 volumes and the Nimitz Collection of his personal papers.`,
+    facts: [
+      "Named for Fleet Admiral Chester Nimitz (1905)",
+      "Commander in Chief, Pacific Fleet (CINCPAC)",
+      "Led Navy from Pearl Harbor to V-J Day",
+      "Accepted Japan's surrender on USS Missouri",
+      "Library houses Nimitz's personal papers"
+    ]
+  }
+};
+
+// ══════════════════════════════════════════════
+//  TOOLTIP
+// ══════════════════════════════════════════════
+const tooltip  = document.getElementById('tooltip');
+const tipName  = document.getElementById('tip-name');
+const tipDesc  = document.getElementById('tip-desc');
+const svg      = document.getElementById('yard-map');
+
+svg.addEventListener('mousemove', (e) => {
+  const g = e.target.closest('g[data-id]');
+  if (g && LOCATIONS[g.dataset.id]) {
+    const d = LOCATIONS[g.dataset.id];
+    tipName.textContent = d.name;
+    tipDesc.textContent = d.short;
+    tooltip.classList.add('visible');
+
+    const TW = 215, TH = 65, M = 16;
+    let x = e.clientX + M;
+    let y = e.clientY + M;
+    if (x + TW > window.innerWidth  - 8) x = e.clientX - TW - M;
+    if (y + TH > window.innerHeight - 8) y = e.clientY - TH - M;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  } else {
+    tooltip.classList.remove('visible');
+  }
+});
+
+svg.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+
+// ══════════════════════════════════════════════
+//  INFO PANEL
+// ══════════════════════════════════════════════
+const panel      = document.getElementById('info-panel');
+const panelClose = document.getElementById('panel-close');
+
+let activeGroup = null;
+
+function openPanel(id) {
+  const d = LOCATIONS[id];
+  if (!d) return;
+  document.getElementById('panel-type').textContent  = d.type.toUpperCase();
+  document.getElementById('panel-name').textContent  = d.name;
+  document.getElementById('panel-year').textContent  = d.year;
+  document.getElementById('panel-short').textContent = d.short;
+  document.getElementById('panel-body').textContent  = d.body;
+
+  const ul = document.getElementById('panel-facts');
+  ul.innerHTML = '';
+  d.facts.forEach(f => {
+    const li = document.createElement('li');
+    li.textContent = f;
+    ul.appendChild(li);
+  });
+
+  panel.classList.add('visible');
+  panel.scrollTop = 0;
+}
+
+function closePanel() {
+  panel.classList.remove('visible');
+  if (activeGroup) { activeGroup.classList.remove('active'); activeGroup = null; }
+}
+
+panelClose.addEventListener('click', closePanel);
+
+svg.addEventListener('click', (e) => {
+  const g = e.target.closest('g[data-id]');
+  if (g && LOCATIONS[g.dataset.id]) {
+    if (activeGroup) activeGroup.classList.remove('active');
+    activeGroup = g;
+    activeGroup.classList.add('active');
+    openPanel(g.dataset.id);
+    tooltip.classList.remove('visible');
+  }
+});
+
+// Close panel when clicking outside map (desktop)
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#yard-map') && !e.target.closest('#info-panel')) {
+    closePanel();
+  }
+});
+
+// ══════════════════════════════════════════════
+//  COUNTDOWN  —  targeting May 28, 2030
+// ══════════════════════════════════════════════
+const TARGET = new Date('2030-05-28T10:00:00');
+
+function pad(n, len) { return String(n).padStart(len, '0'); }
+
+function tick() {
+  const diff = TARGET - Date.now();
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+      document.getElementById(id).textContent = '00';
+    });
+    document.querySelector('.countdown-heading').textContent = 'WE HAVE RETURNED — CLASS OF 2010';
+    return;
+  }
+  const days  = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins  = Math.floor((diff % 3600000)  / 60000);
+  const secs  = Math.floor((diff % 60000)    / 1000);
+
+  document.getElementById('cd-days').textContent  = pad(days, 4);
+  document.getElementById('cd-hours').textContent = pad(hours, 2);
+  document.getElementById('cd-mins').textContent  = pad(mins, 2);
+  document.getElementById('cd-secs').textContent  = pad(secs, 2);
+}
+
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

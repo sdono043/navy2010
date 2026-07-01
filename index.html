@@ -101,14 +101,12 @@
 
     /* ── MAP SECTION ── */
     .map-section {
-      display: flex;
-      gap: 0;
-      align-items: flex-start;
+      position: relative;
       padding: 1.25rem 1.25rem 2rem;
       background: var(--navy-bg);
     }
 
-    .map-wrapper { flex:1; min-width:0; }
+    .map-wrapper { width: 100%; }
 
     .map-frame {
       border: 1px solid var(--gold-dim);
@@ -195,23 +193,24 @@
     /* ── INFO PANEL ── */
     .info-panel {
       width: 320px;
-      flex-shrink: 0;
       background: var(--navy-panel);
       border-left: 3px solid var(--gold);
       border-top: 1px solid var(--gold-dim);
       border-right: 1px solid var(--gold-dim);
       border-bottom: 1px solid var(--gold-dim);
       padding: 1.75rem 1.5rem 2rem;
-      position: relative;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
       max-height: 660px;
       overflow-y: auto;
-      margin-left: 1.25rem;
       opacity: 0;
       transform: translateX(16px);
       pointer-events: none;
       transition: transform 0.35s ease, opacity 0.35s ease;
       scrollbar-width: thin;
       scrollbar-color: var(--gold-dim) var(--navy-mid);
+      z-index: 1000;
     }
     .info-panel::-webkit-scrollbar { width:3px; }
     .info-panel::-webkit-scrollbar-track { background:var(--navy-mid); }

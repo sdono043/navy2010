@@ -11,10 +11,14 @@
     :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;--hero-photo:none;}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+
+    /* ── NAV ── */
     .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.2);position:sticky;top:0;z-index:100;}
     .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
     .nav-back:hover{color:var(--gold-light);}
     .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+
+    /* ── HERO ── */
     .hero{min-height:520px;background:linear-gradient(to bottom,rgba(4,13,28,0.3) 0%,rgba(4,13,28,0.88) 65%,var(--navy-deep) 100%),var(--hero-photo) center/cover no-repeat,linear-gradient(160deg,#060e22 0%,#0c1e3c 60%,#071528 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 3rem 3.5rem;position:relative;overflow:hidden;}
     .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
     .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(201,162,39,0.07) 0%,transparent 70%);pointer-events:none;}
@@ -22,6 +26,8 @@
     .hero-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,5vw,3.8rem);font-weight:700;color:var(--gold-light);line-height:1.1;text-shadow:0 0 40px rgba(232,200,74,0.3),0 2px 20px rgba(0,0,0,0.8);margin-bottom:0.4rem;}
     .hero-year{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
     .hero-rule{width:80px;height:1px;background:var(--gold);margin:1rem 0;}
+
+    /* ── CONTENT ── */
     .content-wrapper{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;}
     .section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
     .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.3),transparent);}
@@ -29,23 +35,59 @@
     .history-section p:last-child{margin-bottom:0;}
     .highlight-box{background:rgba(12,32,64,0.6);border:1px solid rgba(201,162,39,0.25);padding:1.25rem 1.5rem;margin:1.5rem 0 2rem;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.06em;color:var(--gold-pale);line-height:1.7;}
 
-    /* ── SCHEDULES ── */
-    .schedules-section{margin-top:3rem;}
-    .schedules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;}
-    @media(max-width:700px){.schedules-grid{grid-template-columns:1fr;}}
-    .schedule-card{background:rgba(12,32,64,0.5);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;}
-    .schedule-sport{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.35em;color:var(--gold-dim);margin-bottom:0.4rem;}
-    .schedule-name{font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--gold-light);margin-bottom:1rem;line-height:1.3;}
-    .schedule-link{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 0.9rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;text-decoration:none;transition:all 0.25s;margin-top:0.5rem;}
-    .schedule-link:hover{background:var(--gold);color:var(--navy-deep);}
-    .schedule-link .arr{font-family:serif;font-size:0.9rem;letter-spacing:0;}
+    /* ── SCHEDULE TABS ── */
+    .sched-section{margin-top:3rem;}
+    .tab-input{display:none;}
+    .tab-bar{display:flex;border-bottom:2px solid rgba(201,162,39,0.25);margin-bottom:1.5rem;gap:0;}
+    .tab-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;padding:0.7rem 1.25rem;color:var(--text-dim);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
+    .tab-label:hover{color:var(--gold);}
+    #t-fb:checked   ~ .tab-wrap .tl-fb,
+    #t-mlax:checked ~ .tab-wrap .tl-mlax,
+    #t-wlax:checked ~ .tab-wrap .tl-wlax{color:var(--gold);border-bottom-color:var(--gold);}
+    .tab-panel{display:none;}
+    #t-fb:checked   ~ .tab-wrap .tp-fb,
+    #t-mlax:checked ~ .tab-wrap .tp-mlax,
+    #t-wlax:checked ~ .tab-wrap .tp-wlax{display:block;}
 
+    /* ── GAME ROWS ── */
+    .season-record{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;color:var(--gold-pale);margin-bottom:1.1rem;padding:0.6rem 0.75rem;background:rgba(201,162,39,0.07);border-left:3px solid var(--gold);}
+    .schedule-list{background:var(--navy-panel);border:1px solid rgba(201,162,39,0.18);}
+    .game-group{font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.4em;color:var(--gold-dim);padding:0.45rem 0.75rem;background:rgba(201,162,39,0.06);border-top:1px solid rgba(201,162,39,0.12);border-bottom:1px solid rgba(201,162,39,0.08);}
+    .game-group:first-child{border-top:none;}
+    .game-row{display:flex;align-items:center;gap:0.65rem;padding:0.5rem 0.75rem;border-bottom:1px solid rgba(201,162,39,0.06);transition:background 0.15s;}
+    .game-row:last-child{border-bottom:none;}
+    .game-row:hover{background:rgba(201,162,39,0.04);}
+    .game-row.canceled{opacity:0.4;}
+    .game-date{font-family:'Cinzel',serif;font-size:0.54rem;letter-spacing:0.06em;color:var(--text-dim);min-width:3.2rem;flex-shrink:0;}
+    .opp-wrap{display:flex;align-items:center;gap:0.55rem;flex:1;min-width:0;}
+    .opp-logo{width:30px;height:30px;object-fit:contain;border-radius:3px;background:rgba(255,255,255,0.05);flex-shrink:0;}
+    .logo-fb{display:none;width:30px;height:30px;background:var(--navy-mid);border:1px solid var(--gold-dim);border-radius:3px;font-family:'Cinzel',serif;font-size:0.38rem;letter-spacing:0.04em;color:var(--gold-dim);align-items:center;justify-content:center;text-align:center;flex-shrink:0;}
+    .opp-name{font-family:'EB Garamond',serif;font-size:0.95rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .game-loc{font-family:'Cinzel',serif;font-size:0.46rem;letter-spacing:0.18em;padding:0.18rem 0.45rem;border:1px solid;min-width:2.8rem;text-align:center;flex-shrink:0;}
+    .game-loc.home{color:var(--gold);border-color:var(--gold-dim);}
+    .game-loc.away{color:var(--text-dim);border-color:rgba(138,154,168,0.25);}
+    .game-loc.neut{color:#b8a050;border-color:#7a6c30;}
+    .game-result{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.06em;min-width:5.5rem;text-align:right;flex-shrink:0;}
+    .game-result.win{color:#72c490;}
+    .game-result.loss{color:#c07070;}
+    .game-result.canc{color:var(--text-dim);font-style:italic;}
+    .game-tv{font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.05em;color:var(--text-dim);min-width:6rem;text-align:right;flex-shrink:0;}
+    .venue-note{font-family:'Cinzel',serif;font-size:0.44rem;letter-spacing:0.06em;color:var(--text-dim);min-width:8rem;text-align:right;flex-shrink:0;}
+
+    @media(max-width:560px){
+      .game-tv,.venue-note{display:none;}
+      .game-result{min-width:4rem;}
+      .tab-label{padding:0.65rem 0.75rem;font-size:0.52rem;}
+    }
+
+    /* ── FACTS ── */
     .facts-section{margin-top:3rem;}
     .facts-list{list-style:none;background:var(--navy-panel);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;columns:2;gap:2rem;}
     @media(max-width:600px){.facts-list{columns:1;}}
     .facts-list li{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.04em;color:var(--text-dim);padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(201,162,39,0.08);position:relative;line-height:1.55;break-inside:avoid;}
     .facts-list li:last-child{border-bottom:none;}
     .facts-list li::before{content:'⚓';position:absolute;left:0;font-size:0.45rem;top:0.65rem;color:var(--gold-dim);}
+
     .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
     .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
     .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.12);background:#020810;}
@@ -78,49 +120,544 @@
     <div class="highlight-box">The Army-Navy Game · One of the oldest rivalries in American sport · First played November 29, 1890 · Navy leads the all-time series</div>
 
     <p class="section-label" style="margin-top:2rem">NAVY LACROSSE</p>
-    <p>Lacrosse has deep roots at the Naval Academy, with both the men's and women's programs routinely contending for Patriot League titles and NCAA Tournament berths. Navy Men's Lacrosse is one of the nation's storied programs, producing All-Americans and professional players. The women's program has built a consistent national presence. Both programs represent the same values as the institution they compete for: discipline, team over individual, and performance under pressure.</p>
+    <p>Lacrosse has deep roots at the Naval Academy, with both the men's and women's programs routinely contending for Patriot League titles and NCAA Tournament berths. The 2026 women's program — coached by Cindy Timchal, the winningest coach in NCAA Division I women's lacrosse history — finished 20-2 overall, earned the No. 6 national seed, and reached the NCAA quarterfinals. The men's program finished 7-7, competing in one of the nation's toughest lacrosse conferences.</p>
   </div>
 
   <!-- ── SCHEDULES ── -->
-  <div class="schedules-section">
-    <p class="section-label">2025–26 SCHEDULES</p>
-    <div class="schedules-grid">
+  <div class="sched-section">
+    <p class="section-label">2026 SCHEDULES</p>
 
-      <div class="schedule-card">
-        <p class="schedule-sport">FOOTBALL</p>
-        <p class="schedule-name">Navy Midshipmen Football</p>
-        <a class="schedule-link" href="https://navysports.com/sports/football/schedule" target="_blank" rel="noopener">
-          VIEW FULL SCHEDULE <span class="arr">→</span>
-        </a>
-        <a class="schedule-link" href="https://navysports.com/sports/football/roster" target="_blank" rel="noopener">
-          ROSTER <span class="arr">→</span>
-        </a>
+    <input type="radio" name="sched-tab" id="t-fb"   class="tab-input" checked>
+    <input type="radio" name="sched-tab" id="t-mlax" class="tab-input">
+    <input type="radio" name="sched-tab" id="t-wlax" class="tab-input">
+
+    <div class="tab-wrap">
+      <div class="tab-bar">
+        <label class="tab-label tl-fb"   for="t-fb">FOOTBALL</label>
+        <label class="tab-label tl-mlax" for="t-mlax">MEN'S LACROSSE</label>
+        <label class="tab-label tl-wlax" for="t-wlax">WOMEN'S LACROSSE</label>
       </div>
 
-      <div class="schedule-card">
-        <p class="schedule-sport">MEN'S LACROSSE</p>
-        <p class="schedule-name">Navy Midshipmen Men's Lacrosse</p>
-        <a class="schedule-link" href="https://navysports.com/sports/mens-lacrosse/schedule" target="_blank" rel="noopener">
-          VIEW FULL SCHEDULE <span class="arr">→</span>
-        </a>
-        <a class="schedule-link" href="https://navysports.com/sports/mens-lacrosse/roster" target="_blank" rel="noopener">
-          ROSTER <span class="arr">→</span>
-        </a>
-      </div>
+      <!-- ── FOOTBALL ── -->
+      <div class="tab-panel tp-fb">
+        <p class="season-record">2026 Season &nbsp;·&nbsp; American Athletic Conference &nbsp;·&nbsp; Schedule TBD</p>
+        <div class="schedule-list">
+          <div class="game-group">SEPTEMBER</div>
+          <div class="game-row">
+            <span class="game-date">Sep 5</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" onerror="logoFb(this)" alt="Towson">
+              <span class="logo-fb">TOW</span>
+              <span class="opp-name">Towson</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-tv">CBSSN · 3:30 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 12</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png" onerror="logoFb(this)" alt="Florida Atlantic">
+              <span class="logo-fb">FAU</span>
+              <span class="opp-name">Florida Atlantic</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-tv">7:30 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 25</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/5.png" onerror="logoFb(this)" alt="UAB">
+              <span class="logo-fb">UAB</span>
+              <span class="opp-name">UAB</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-tv">7:00 PM</span>
+          </div>
+          <div class="game-group">OCTOBER</div>
+          <div class="game-row">
+            <span class="game-date">Oct 3</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" onerror="logoFb(this)" alt="Air Force">
+              <span class="logo-fb">AFA</span>
+              <span class="opp-name">Air Force</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-tv">CBS · 12:00 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 10</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2573.png" onerror="logoFb(this)" alt="Tulsa">
+              <span class="logo-fb">TUL</span>
+              <span class="opp-name">Tulsa</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-tv">CBSSN · 3:30 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 17</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png" onerror="logoFb(this)" alt="UTSA">
+              <span class="logo-fb">UTSA</span>
+              <span class="opp-name">UTSA</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-tv">TBD</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 24</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" onerror="logoFb(this)" alt="North Texas">
+              <span class="logo-fb">UNT</span>
+              <span class="opp-name">North Texas</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-tv">CBSSN · 3:30 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 31</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/87.png" onerror="logoFb(this)" alt="Notre Dame">
+              <span class="logo-fb">ND</span>
+              <span class="opp-name">Notre Dame</span>
+            </div>
+            <span class="game-loc neut">NEUT</span>
+            <span class="venue-note">Gillette Stadium · Foxborough</span>
+          </div>
+          <div class="game-group">NOVEMBER</div>
+          <div class="game-row">
+            <span class="game-date">Nov 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/218.png" onerror="logoFb(this)" alt="Temple">
+              <span class="logo-fb">TEM</span>
+              <span class="opp-name">Temple</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-tv">CBSSN · 3:30 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/235.png" onerror="logoFb(this)" alt="Memphis">
+              <span class="logo-fb">MEM</span>
+              <span class="opp-name">Memphis</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-tv">12:00 PM</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png" onerror="logoFb(this)" alt="Charlotte">
+              <span class="logo-fb">CLT</span>
+              <span class="opp-name">Charlotte</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-tv">TBD</span>
+          </div>
+          <div class="game-group">DECEMBER · ARMY-NAVY</div>
+          <div class="game-row">
+            <span class="game-date">Dec 12</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">Army</span>
+            </div>
+            <span class="game-loc neut">NEUT</span>
+            <span class="venue-note">MetLife Stadium · E. Rutherford</span>
+          </div>
+        </div>
+      </div><!-- /tp-fb -->
 
-      <div class="schedule-card">
-        <p class="schedule-sport">WOMEN'S LACROSSE</p>
-        <p class="schedule-name">Navy Midshipmen Women's Lacrosse</p>
-        <a class="schedule-link" href="https://navysports.com/sports/womens-lacrosse/schedule" target="_blank" rel="noopener">
-          VIEW FULL SCHEDULE <span class="arr">→</span>
-        </a>
-        <a class="schedule-link" href="https://navysports.com/sports/womens-lacrosse/roster" target="_blank" rel="noopener">
-          ROSTER <span class="arr">→</span>
-        </a>
-      </div>
+      <!-- ── MEN'S LACROSSE ── -->
+      <div class="tab-panel tp-mlax">
+        <p class="season-record">2026 Season Record: 7-7 overall · 3-5 Patriot League</p>
+        <div class="schedule-list">
+          <div class="game-row canceled">
+            <span class="game-date">Jan 31</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2272.png" onerror="logoFb(this)" alt="High Point">
+              <span class="logo-fb">HPU</span>
+              <span class="opp-name">High Point</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result canc">Canceled</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 6</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/314.png" onerror="logoFb(this)" alt="Iona">
+              <span class="logo-fb">ION</span>
+              <span class="opp-name">Iona</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 17-7</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" onerror="logoFb(this)" alt="Towson">
+              <span class="logo-fb">TOW</span>
+              <span class="opp-name">Towson</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 8-12</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 17</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2678.png" onerror="logoFb(this)" alt="VMI">
+              <span class="logo-fb">VMI</span>
+              <span class="opp-name">VMI</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 19-12</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" onerror="logoFb(this)" alt="Penn State">
+              <span class="logo-fb">PSU</span>
+              <span class="opp-name">Penn State</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 12-11</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" onerror="logoFb(this)" alt="Boston University">
+              <span class="logo-fb">BU</span>
+              <span class="opp-name">Boston University</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 10-15</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 16-12</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 10</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/294.png" onerror="logoFb(this)" alt="Jacksonville">
+              <span class="logo-fb">JAX</span>
+              <span class="opp-name">Jacksonville</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 10-9 OT</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/118.png" onerror="logoFb(this)" alt="Johns Hopkins">
+              <span class="logo-fb">JHU</span>
+              <span class="opp-name">Johns Hopkins</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 10-14</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 20</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" onerror="logoFb(this)" alt="Lafayette">
+              <span class="logo-fb">LAF</span>
+              <span class="opp-name">Lafayette</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 15-9</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" onerror="logoFb(this)" alt="Colgate">
+              <span class="logo-fb">COL</span>
+              <span class="opp-name">Colgate</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result loss">L 15-16 2OT</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 4</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2157.png" onerror="logoFb(this)" alt="Holy Cross">
+              <span class="logo-fb">HC</span>
+              <span class="opp-name">Holy Cross</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 20-13</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 11</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">Army</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 9-14</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" onerror="logoFb(this)" alt="Lehigh">
+              <span class="logo-fb">LEH</span>
+              <span class="opp-name">Lehigh</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 7-19</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 24</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2249.png" onerror="logoFb(this)" alt="Loyola">
+              <span class="logo-fb">LOY</span>
+              <span class="opp-name">Loyola</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result loss">L 12-13</span>
+          </div>
+        </div>
+      </div><!-- /tp-mlax -->
 
-    </div>
-  </div>
+      <!-- ── WOMEN'S LACROSSE ── -->
+      <div class="tab-panel tp-wlax">
+        <p class="season-record">2026 Season Record: 20-2 overall · 8-1 Patriot League · #6 NCAA Seed · NCAA Quarterfinals</p>
+        <div class="schedule-list">
+          <div class="game-group">REGULAR SEASON</div>
+          <div class="game-row">
+            <span class="game-date">Feb 6</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/258.png" onerror="logoFb(this)" alt="Virginia">
+              <span class="logo-fb">UVA</span>
+              <span class="opp-name">#10 Virginia</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 12-10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/222.png" onerror="logoFb(this)" alt="Villanova">
+              <span class="logo-fb">VIL</span>
+              <span class="opp-name">Villanova</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 18-5</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2159.png" onerror="logoFb(this)" alt="Delaware">
+              <span class="logo-fb">DEL</span>
+              <span class="opp-name">Delaware</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 15-10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2272.png" onerror="logoFb(this)" alt="High Point">
+              <span class="logo-fb">HPU</span>
+              <span class="opp-name">High Point</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 14-6</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/57.png" onerror="logoFb(this)" alt="Florida">
+              <span class="logo-fb">UF</span>
+              <span class="opp-name">#7 Florida</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 14-11</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/58.png" onerror="logoFb(this)" alt="South Florida">
+              <span class="logo-fb">USF</span>
+              <span class="opp-name">South Florida</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 19-8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 10</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/294.png" onerror="logoFb(this)" alt="Jacksonville">
+              <span class="logo-fb">JAX</span>
+              <span class="opp-name">Jacksonville</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 13-10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 17-6</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 17</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/9.png" onerror="logoFb(this)" alt="Arizona State">
+              <span class="logo-fb">ASU</span>
+              <span class="opp-name">Arizona State</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 11-10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2157.png" onerror="logoFb(this)" alt="Holy Cross">
+              <span class="logo-fb">HC</span>
+              <span class="opp-name">Holy Cross</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 18-3</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 25</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" onerror="logoFb(this)" alt="Lehigh">
+              <span class="logo-fb">LEH</span>
+              <span class="opp-name">Lehigh</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 11-6</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2249.png" onerror="logoFb(this)" alt="Loyola">
+              <span class="logo-fb">LOY</span>
+              <span class="opp-name">#22 Loyola</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 14-19</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 4</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" onerror="logoFb(this)" alt="Boston University">
+              <span class="logo-fb">BU</span>
+              <span class="opp-name">Boston University</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 16-5</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 11</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">#14 Army</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 14-8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 15</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" onerror="logoFb(this)" alt="Lafayette">
+              <span class="logo-fb">LAF</span>
+              <span class="opp-name">Lafayette</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 24-1</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" onerror="logoFb(this)" alt="Colgate">
+              <span class="logo-fb">COL</span>
+              <span class="opp-name">Colgate</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 23-7</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 22</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/44.png" onerror="logoFb(this)" alt="American">
+              <span class="logo-fb">AU</span>
+              <span class="opp-name">American</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 18-5</span>
+          </div>
+          <div class="game-group">PATRIOT LEAGUE TOURNAMENT</div>
+          <div class="game-row">
+            <span class="game-date">Apr 30</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 18-8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">May 2</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">#13 Army · Championship</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 17-11</span>
+          </div>
+          <div class="game-group">NCAA TOURNAMENT</div>
+          <div class="game-row">
+            <span class="game-date">May 8</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/113.png" onerror="logoFb(this)" alt="UMass">
+              <span class="logo-fb">UMA</span>
+              <span class="opp-name">UMass · 1st Round</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 17-16</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">May 10</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/183.png" onerror="logoFb(this)" alt="Syracuse">
+              <span class="logo-fb">SYR</span>
+              <span class="opp-name">#9 Syracuse · 2nd Round</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 11-10 OT</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">May 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/120.png" onerror="logoFb(this)" alt="Maryland">
+              <span class="logo-fb">UMD</span>
+              <span class="opp-name">#3 Maryland · Quarterfinals</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 10-14</span>
+          </div>
+        </div>
+      </div><!-- /tp-wlax -->
+
+    </div><!-- /tab-wrap -->
+  </div><!-- /sched-section -->
 
   <!-- ── KEY FACTS ── -->
   <div class="facts-section">
@@ -144,5 +681,13 @@
   <div class="footer-rule"></div>
   <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
 </footer>
+
+<script>
+  function logoFb(img) {
+    img.style.display = 'none';
+    var fb = img.nextElementSibling;
+    if (fb && fb.classList.contains('logo-fb')) fb.style.display = 'flex';
+  }
+</script>
 </body>
 </html>

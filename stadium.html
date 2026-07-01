@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navy–Marine Corps Memorial Stadium · The Yard · USNA Class of 2010</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;--hero-photo:none;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.2);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero{min-height:520px;background:linear-gradient(to bottom,rgba(4,13,28,0.3) 0%,rgba(4,13,28,0.88) 65%,var(--navy-deep) 100%),var(--hero-photo) center/cover no-repeat,linear-gradient(160deg,#060e22 0%,#0c1e3c 60%,#071528 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 3rem 3.5rem;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
+    .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(201,162,39,0.07) 0%,transparent 70%);pointer-events:none;}
+    .hero-type{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:0.5rem;}
+    .hero-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,5vw,3.8rem);font-weight:700;color:var(--gold-light);line-height:1.1;text-shadow:0 0 40px rgba(232,200,74,0.3),0 2px 20px rgba(0,0,0,0.8);margin-bottom:0.4rem;}
+    .hero-year{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero-rule{width:80px;height:1px;background:var(--gold);margin:1rem 0;}
+    .content-wrapper{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;}
+    .section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.3),transparent);}
+    .history-section p{font-size:1.05rem;line-height:1.85;color:rgba(232,216,160,0.9);margin-bottom:1.35rem;}
+    .history-section p:last-child{margin-bottom:0;}
+    .highlight-box{background:rgba(12,32,64,0.6);border:1px solid rgba(201,162,39,0.25);padding:1.25rem 1.5rem;margin:1.5rem 0 2rem;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.06em;color:var(--gold-pale);line-height:1.7;}
+
+    /* ── SCHEDULES ── */
+    .schedules-section{margin-top:3rem;}
+    .schedules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;}
+    @media(max-width:700px){.schedules-grid{grid-template-columns:1fr;}}
+    .schedule-card{background:rgba(12,32,64,0.5);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;}
+    .schedule-sport{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.35em;color:var(--gold-dim);margin-bottom:0.4rem;}
+    .schedule-name{font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--gold-light);margin-bottom:1rem;line-height:1.3;}
+    .schedule-link{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 0.9rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;text-decoration:none;transition:all 0.25s;margin-top:0.5rem;}
+    .schedule-link:hover{background:var(--gold);color:var(--navy-deep);}
+    .schedule-link .arr{font-family:serif;font-size:0.9rem;letter-spacing:0;}
+
+    .facts-section{margin-top:3rem;}
+    .facts-list{list-style:none;background:var(--navy-panel);border:1px solid rgba(201,162,39,0.2);border-top:3px solid var(--gold);padding:1.5rem;columns:2;gap:2rem;}
+    @media(max-width:600px){.facts-list{columns:1;}}
+    .facts-list li{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.04em;color:var(--text-dim);padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(201,162,39,0.08);position:relative;line-height:1.55;break-inside:avoid;}
+    .facts-list li:last-child{border-bottom:none;}
+    .facts-list li::before{content:'⚓';position:absolute;left:0;font-size:0.45rem;top:0.65rem;color:var(--gold-dim);}
+    .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
+    .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.12);background:#020810;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.35);font-style:italic;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+<div class="hero">
+  <p class="hero-type">STADIUM &nbsp;·&nbsp; HOME OF NAVY ATHLETICS</p>
+  <h1 class="hero-name">Navy–Marine Corps<br>Memorial Stadium</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-year">OPENED SEPTEMBER 26, 1959 &nbsp;·&nbsp; CAPACITY ~34,000</p>
+</div>
+<div class="content-wrapper">
+
+  <div class="history-section">
+    <p class="section-label">THE STADIUM</p>
+    <p>Navy–Marine Corps Memorial Stadium opened on September 26, 1959, built to give the Midshipmen a permanent home field after decades of playing at neutral sites. Its name honors the men and women of the Navy and Marine Corps who gave their lives in World War II — making it one of the few stadiums in America named not for a donor or a sponsor, but for the fallen.</p>
+    <p>The stadium sits about one mile west of the Yard on Rowe Boulevard, with a current capacity of approximately 34,000. It is home to Navy Football, Navy Men's Lacrosse, and Navy Women's Lacrosse.</p>
+
+    <p class="section-label" style="margin-top:2rem">NAVY FOOTBALL</p>
+    <p>Navy Football's most celebrated moment came in 1963, when quarterback Roger Staubach won the Heisman Trophy — the only Naval Academy player ever to do so — before reporting for five years of active duty. The Army-Navy Game, one of the oldest and most storied rivalries in college football (dating to 1890), has been played here and at neutral sites including Philadelphia's Lincoln Financial Field. Navy's 2015 team, led by Keenan Reynolds — the all-time leading rusher in college football history at the time — won 11 games and the Military Bowl. The program has produced Rhodes Scholars, astronauts, admirals, and one President.</p>
+
+    <div class="highlight-box">The Army-Navy Game · One of the oldest rivalries in American sport · First played November 29, 1890 · Navy leads the all-time series</div>
+
+    <p class="section-label" style="margin-top:2rem">NAVY LACROSSE</p>
+    <p>Lacrosse has deep roots at the Naval Academy, with both the men's and women's programs routinely contending for Patriot League titles and NCAA Tournament berths. Navy Men's Lacrosse is one of the nation's storied programs, producing All-Americans and professional players. The women's program has built a consistent national presence. Both programs represent the same values as the institution they compete for: discipline, team over individual, and performance under pressure.</p>
+  </div>
+
+  <!-- ── SCHEDULES ── -->
+  <div class="schedules-section">
+    <p class="section-label">2025–26 SCHEDULES</p>
+    <div class="schedules-grid">
+
+      <div class="schedule-card">
+        <p class="schedule-sport">FOOTBALL</p>
+        <p class="schedule-name">Navy Midshipmen Football</p>
+        <a class="schedule-link" href="https://navysports.com/sports/football/schedule" target="_blank" rel="noopener">
+          VIEW FULL SCHEDULE <span class="arr">→</span>
+        </a>
+        <a class="schedule-link" href="https://navysports.com/sports/football/roster" target="_blank" rel="noopener">
+          ROSTER <span class="arr">→</span>
+        </a>
+      </div>
+
+      <div class="schedule-card">
+        <p class="schedule-sport">MEN'S LACROSSE</p>
+        <p class="schedule-name">Navy Midshipmen Men's Lacrosse</p>
+        <a class="schedule-link" href="https://navysports.com/sports/mens-lacrosse/schedule" target="_blank" rel="noopener">
+          VIEW FULL SCHEDULE <span class="arr">→</span>
+        </a>
+        <a class="schedule-link" href="https://navysports.com/sports/mens-lacrosse/roster" target="_blank" rel="noopener">
+          ROSTER <span class="arr">→</span>
+        </a>
+      </div>
+
+      <div class="schedule-card">
+        <p class="schedule-sport">WOMEN'S LACROSSE</p>
+        <p class="schedule-name">Navy Midshipmen Women's Lacrosse</p>
+        <a class="schedule-link" href="https://navysports.com/sports/womens-lacrosse/schedule" target="_blank" rel="noopener">
+          VIEW FULL SCHEDULE <span class="arr">→</span>
+        </a>
+        <a class="schedule-link" href="https://navysports.com/sports/womens-lacrosse/roster" target="_blank" rel="noopener">
+          ROSTER <span class="arr">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── KEY FACTS ── -->
+  <div class="facts-section">
+    <p class="section-label" style="margin-top:2.5rem">KEY FACTS</p>
+    <ul class="facts-list">
+      <li>Opened September 26, 1959 — named to honor Navy and Marine Corps WWII fallen</li>
+      <li>Capacity approximately 34,000</li>
+      <li>Roger Staubach (Class of 1965) won the 1963 Heisman Trophy</li>
+      <li>Army-Navy Game rivalry dates to November 29, 1890</li>
+      <li>Keenan Reynolds (2015) broke the all-time college football rushing record</li>
+      <li>Home to Navy Football, Men's Lacrosse, and Women's Lacrosse</li>
+      <li>Located approximately one mile west of the main Yard on Rowe Boulevard</li>
+      <li>One of few stadiums in America named for the fallen rather than a donor</li>
+    </ul>
+  </div>
+
+  <a href="index.html" class="back-btn">← Back to The Yard</a>
+</div>
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+</body>
+</html>

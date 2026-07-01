@@ -594,6 +594,19 @@ Completed in 1991, the arena seats approximately 5,710 for basketball and hosts 
 For the Class of 2010, Alumni Hall was the site of countless athletic events, Brigade events, and the kind of memories that come from being packed into an arena with every other midshipman. It anchors the northwestern corner of the Yard and remains one of the most heavily used facilities in the Academy.`,
     facts: ["Completed 1991 — dedicated to all USNA alumni collectively","Seats approximately 5,710 — primary home of Navy Basketball","Full name: Terwilliger Brothers Field at Alumni Hall","Home of Navy Midshipmen basketball, wrestling, and volleyball","Hosts major Brigade-wide events and ceremonies","Anchors the northwest corner of the Yard"]
   },
+  stadium: {
+    name: "Navy–Marine Corps Memorial Stadium", type: "Stadium", year: "OPENED 1959",
+    short: "Home of Navy Football and Lacrosse — and the Army-Navy Game.",
+    body: `Navy–Marine Corps Memorial Stadium opened on September 26, 1959, built to give the Midshipmen a permanent home field after decades of playing at neutral sites. Its name honors the men and women of the Navy and Marine Corps who gave their lives in World War II — making it one of the few stadiums in America named not for a donor or a sponsor, but for the fallen.
+
+The stadium sits about one mile west of the Yard on Rowe Boulevard, with a current capacity of approximately 34,000. It is home to Navy Football, Navy Men's Lacrosse, and Navy Women's Lacrosse.
+
+Navy Football's most celebrated moment came in 1963, when quarterback Roger Staubach won the Heisman Trophy — the only Naval Academy player ever to do so — before reporting for five years of active duty. The Army-Navy Game, played here and at various neutral sites, is one of the oldest and most storied rivalries in college football, dating to 1890. Navy's 2015 team, led by Keenan Reynolds, won 11 games and the Military Bowl. The program has produced Rhodes Scholars, astronauts, admirals, and one President.
+
+Lacrosse has deep roots at the Academy — Navy fields nationally competitive programs in both men's and women's lacrosse, routinely contending for Patriot League titles and NCAA Tournament berths.`,
+    facts: ["Opened September 26, 1959 — named to honor Navy and Marine Corps WWII fallen","Capacity approximately 34,000","Roger Staubach (Class of 1965) won the 1963 Heisman Trophy here","Army-Navy Game rivalry dates to 1890 — one of the oldest in college football","Home to Navy Football, Men's Lacrosse, and Women's Lacrosse","Located approximately one mile west of the main Yard on Rowe Boulevard"],
+    page: 'stadium.html'
+  },
   dahlgren: {
     name: "Dahlgren Hall", type: "Historic Building", year: "COMPLETED 1903",
     short: "Named for the inventor of the bottle-shaped naval gun that armed the Union Navy through the Civil War.",
@@ -746,6 +759,15 @@ const FEATURES = [
     ]
   },
   {
+    id: 'stadium', type: 'polygon',
+    coords: [
+      [38.983518, -76.507416],
+      [38.984686, -76.505527],
+      [38.986120, -76.506879],
+      [38.985319, -76.508896]
+    ]
+  },
+  {
     id: 'dahlgren', type: 'polygon',
     coords: [
       [38.979882, -76.483383],
@@ -847,8 +869,8 @@ const FEATURES = [
 //  LEAFLET MAP INIT
 // ══════════════════════════════════════════════
 const map = L.map('map', {
-  center: [38.9835, -76.4855],
-  zoom: 16,
+  center: [38.9820, -76.4960],
+  zoom: 15,
   zoomControl: true,
   maxZoom: 19,
   minZoom: 14

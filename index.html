@@ -645,6 +645,19 @@ In 1898, as commander of the North Atlantic Squadron, Sampson blockaded Cuba fol
 Sampson Hall was built as part of architect Ernest Flagg's sweeping Beaux-Arts redesign of the Yard, completed in 1907 alongside Mahan and Maury Halls. It houses the USNA Department of Chemistry and the Corrosion Science & Engineering program.`,
     facts: ["Named for RADM William T. Sampson, USNA Class of 1861 — graduated first in class","Commanded the North Atlantic Squadron during the Spanish-American War (1898)","Battle of Santiago Bay, July 3, 1898 — Spanish fleet destroyed in under 4 hours","Sampson served as USNA Superintendent 1886–1890","Designed by Ernest Flagg, Beaux-Arts style, completed 1907","Houses the USNA Department of Chemistry"]
   },
+  billthegoat: {
+    name: "Bill the Goat Statue", type: "Statue", year: "DEDICATED 1998",
+    short: "Navy's beloved mascot — the most famous goat in college football history.",
+    body: `Bill the Goat has been the official mascot of the Naval Academy since 1893, making him one of the oldest and most storied mascots in college athletics. The original Bill arrived at an Army-Navy game that year when sailors from USS New York brought a goat to the sideline for good luck — Navy won, and the tradition was born. Since then, there have been 34 official Billies, each one a registered live goat that attends games, parades, and official Academy events.
+
+The bronze statue near Lejeune Hall captures the mascot in full charging stance, commemorating more than a century of loyalty to the Brigade of Midshipmen. It was dedicated in 1998 and has become a beloved landmark on the Yard — a gathering point for midshipmen before big games and a stop on every visitor's tour.
+
+Bill's most storied moment comes each December at the Army-Navy Game. Win or lose, the Brigade's bond with their goat is ironclad — sailors have gone to elaborate lengths to protect (and occasionally "rescue") Bill from rival cadets. In 1953, West Point cadets kidnapped Bill before the game. Navy won anyway. The goat has been a symbol not just of athletic spirit but of the irreverence and camaraderie that define life at the Academy.
+
+The name "Bill" is believed to derive from a common sailor's nickname of the era. Each successive mascot, regardless of personality, inherits the name and the legacy. Live Billies are cared for by a designated midshipman handler, and the goat's condition and temperament are taken as a matter of institutional pride.`,
+    facts: ["Bill the Goat has been Navy's mascot since 1893 — over 130 years","Originated when sailors from USS New York brought a goat to the 1893 Army-Navy Game — Navy won","34 official Billies have served as mascot","Bronze statue dedicated 1998, located near Lejeune Hall","In 1953, West Point cadets kidnapped Bill before the Army-Navy Game — Navy won anyway","Each Bill is cared for by a designated midshipman handler","The goat attends games, parades, and official Academy ceremonies"]
+  },
+
   herndon: {
     name: "Herndon Monument", type: "Monument", year: "ERECTED 1860",
     short: "A granite obelisk, fifty pounds of grease, and the most iconic day of plebe year.",
@@ -878,9 +891,15 @@ const FEATURES = [
     ]
   },
   // ── MONUMENTS (circle markers) ──
-  { id: 'tecumseh', type: 'marker', coords: [38.9831, -76.4842] },
-  { id: 'tripoli',  type: 'marker', coords: [38.9839, -76.4854] },
-  { id: 'herndon',  type: 'marker', coords: [38.9844, -76.4862] }
+  { id: 'tecumseh',    type: 'marker', coords: [38.9831, -76.4842] },
+  { id: 'tripoli',    type: 'marker', coords: [38.9839, -76.4854] },
+  { id: 'herndon',    type: 'marker', coords: [38.9844, -76.4862] },
+  { id: 'billthegoat', type: 'polygon', coords: [
+      [38.978867, -76.484231],
+      [38.978850, -76.484349],
+      [38.978792, -76.484317],
+      [38.978792, -76.484241]
+  ]}
 ];
 
 // ══════════════════════════════════════════════

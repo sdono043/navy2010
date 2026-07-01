@@ -281,7 +281,12 @@
     .cd-sep { font-family:'Cinzel',serif; font-size:2rem; color:rgba(122,100,24,0.5); line-height:1; margin-top:0.2rem; }
 
     /* ── FOOTER ── */
-    .site-footer { text-align:center; padding:2rem; border-top:1px solid rgba(201,162,39,0.12); background:#020810; }
+    .memoriam-bar { text-align:center; padding:2rem 2rem 2.25rem; background:#020810; border-top:1px solid rgba(201,162,39,0.18); }
+    .memoriam-bar-label { font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.45em; color:var(--gold-dim); margin-bottom:0.6rem; }
+    .memoriam-bar-names { font-family:'Cinzel Decorative',serif; font-size:clamp(0.78rem,2vw,1rem); color:rgba(232,216,160,0.55); letter-spacing:0.06em; margin-bottom:0.9rem; line-height:1.6; }
+    .memoriam-link { font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.25em; color:var(--gold); text-decoration:none; border:1px solid var(--gold-dim); padding:0.45rem 1rem; display:inline-block; transition:all 0.25s; }
+    .memoriam-link:hover { background:var(--gold); color:var(--navy-deep); }
+    .site-footer { text-align:center; padding:2rem; border-top:1px solid rgba(201,162,39,0.08); background:#020810; }
     .footer-motto { font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.35em; color:var(--text-dim); margin-bottom:0.5rem; }
     .footer-rule { width:50px; height:1px; background:var(--gold-dim); margin:0.6rem auto; }
     .footer-note { font-size:0.72rem; color:rgba(138,154,168,0.35); font-style:italic; }
@@ -388,6 +393,11 @@
 </section>
 
 <!-- ════════ FOOTER ════════ -->
+<div class="memoriam-bar">
+  <p class="memoriam-bar-label">IN MEMORIAM &nbsp;·&nbsp; CLASS OF 2010</p>
+  <p class="memoriam-bar-names">Patrick T. Wayland &nbsp;·&nbsp; William B. McIlvaine III</p>
+  <a href="memoriam.html" class="memoriam-link">REMEMBER THEM →</a>
+</div>
 <footer class="site-footer">
   <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
   <div class="footer-rule"></div>

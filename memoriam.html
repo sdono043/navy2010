@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Memoriam · USNA Class of 2010</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+
+    /* ── NAV ── */
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.15);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+
+    /* ── HEADER ── */
+    .page-header{text-align:center;padding:4rem 2rem 3.5rem;background:linear-gradient(180deg,#020810 0%,var(--navy-bg) 100%);position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--gold),transparent);}
+    .page-header::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(201,162,39,0.05) 0%,transparent 70%);pointer-events:none;}
+    .header-rule{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;}
+    .rule-line{height:1px;width:100px;background:linear-gradient(to right,transparent,var(--gold-dim));}
+    .rule-line.flip{background:linear-gradient(to left,transparent,var(--gold-dim));}
+    .header-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.5em;color:var(--gold-dim);}
+    h1.memoriam-title{font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:700;color:var(--gold-light);letter-spacing:0.05em;line-height:1;text-shadow:0 0 40px rgba(232,200,74,0.2);margin-bottom:1.5rem;}
+    .header-verse{max-width:560px;margin:0 auto;font-size:1.05rem;line-height:1.8;color:rgba(232,216,160,0.65);font-style:italic;}
+    .header-verse cite{display:block;margin-top:0.5rem;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.3em;color:var(--gold-dim);font-style:normal;}
+
+    /* ── CONTENT ── */
+    .content{max-width:1000px;margin:0 auto;padding:4rem 2rem 6rem;}
+
+    /* ── PORTRAIT CARDS ── */
+    .honorees{display:grid;grid-template-columns:1fr 1fr;gap:4rem 5rem;margin-bottom:5rem;}
+    @media(max-width:760px){.honorees{grid-template-columns:1fr;gap:3.5rem;}}
+
+    .honoree{display:flex;flex-direction:column;align-items:center;text-align:center;}
+
+    .portrait-frame{position:relative;width:100%;max-width:280px;margin:0 auto 1.75rem;}
+    .portrait-frame::before{
+      content:'';position:absolute;inset:-3px;
+      background:linear-gradient(135deg,var(--gold-dim),transparent 40%,transparent 60%,var(--gold-dim));
+      z-index:0;
+    }
+    .portrait-frame::after{
+      content:'';position:absolute;inset:0;
+      box-shadow:0 0 40px rgba(201,162,39,0.12),inset 0 0 20px rgba(0,0,0,0.4);
+      z-index:2;pointer-events:none;
+    }
+    .portrait{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;position:relative;z-index:1;filter:grayscale(15%) contrast(1.05);}
+
+    .honoree-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;color:var(--gold-light);letter-spacing:0.03em;line-height:1.2;margin-bottom:0.4rem;}
+    .honoree-rank{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);margin-bottom:1rem;}
+
+    .honoree-meta{display:flex;flex-direction:column;gap:0.3rem;margin-bottom:1.25rem;}
+    .meta-row{font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.22em;color:var(--text-dim);}
+    .meta-row strong{color:rgba(232,216,160,0.6);font-weight:400;}
+
+    .gold-rule{width:40px;height:1px;background:var(--gold-dim);margin:0 auto 1.25rem;}
+
+    .honoree-bio{font-size:0.95rem;line-height:1.85;color:rgba(232,216,160,0.78);text-align:left;}
+    .honoree-bio p{margin-bottom:0.9rem;}
+    .honoree-bio p:last-child{margin-bottom:0;}
+
+    /* ── LEGACY NOTE ── */
+    .legacy-note{background:rgba(12,32,64,0.5);border-top:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.15);padding:1.1rem 1.5rem;margin-top:1.5rem;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--gold-dim);text-align:center;line-height:1.7;}
+
+    /* ── CLOSING ── */
+    .closing{text-align:center;padding:3rem 0 0;border-top:1px solid rgba(201,162,39,0.12);}
+    .closing-rule{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;}
+    .closing-text{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);}
+    .closing-quote{font-size:1.15rem;line-height:1.9;color:rgba(232,216,160,0.6);font-style:italic;max-width:520px;margin:0 auto 0.75rem;}
+    .closing-cite{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.3em;color:var(--gold-dim);}
+
+    .back-btn{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.6rem 1.1rem;transition:all 0.25s;}
+    .back-btn:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
+
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.1);background:#020810;margin-top:4rem;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.3);font-style:italic;}
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+
+<div class="page-header">
+  <div class="header-rule">
+    <div class="rule-line"></div>
+    <span class="header-label">CLASS OF 2010</span>
+    <div class="rule-line flip"></div>
+  </div>
+  <h1 class="memoriam-title">In Memoriam</h1>
+  <p class="header-verse">
+    They answered the call. They served with honor.<br>They are not forgotten.
+    <cite>UNITED STATES NAVAL ACADEMY &nbsp;·&nbsp; ANNAPOLIS, MARYLAND</cite>
+  </p>
+</div>
+
+<div class="content">
+  <div class="honorees">
+
+    <!-- ── PATRICK WAYLAND ── -->
+    <div class="honoree">
+      <div class="portrait-frame">
+        <img class="portrait" src="wayland.png" alt="2nd Lieutenant Patrick T. Wayland, USMC">
+      </div>
+      <h2 class="honoree-name">Patrick T. Wayland</h2>
+      <p class="honoree-rank">2ND LIEUTENANT &nbsp;·&nbsp; UNITED STATES MARINE CORPS</p>
+      <div class="honoree-meta">
+        <p class="meta-row">MIDLAND, TEXAS &nbsp;·&nbsp; <strong>BORN JANUARY 28, 1987</strong></p>
+        <p class="meta-row">USNA 21ST COMPANY &nbsp;·&nbsp; <strong>CLASS OF 2010</strong></p>
+        <p class="meta-row">AUGUST 6, 2011 &nbsp;·&nbsp; <strong>AGE 24</strong></p>
+      </div>
+      <div class="gold-rule"></div>
+      <div class="honoree-bio">
+        <p>Patrick Trevor Wayland grew up in Midland, Texas, where he was a standout at Midland High School — varsity football and basketball, academic letterman, National Honor Society. He was shaped equally by athletics and faith, participating every spring break in mission trips to build homes in Juárez, Mexico.</p>
+        <p>After a year at Texas Tech, he received a Congressional nomination to the Naval Academy, where he graduated in May 2010 with honors in Economics. He was commissioned as a Second Lieutenant in the United States Marine Corps, served as Company Commander of 21st Company during his senior year, and earned a reputation as someone others wanted to follow.</p>
+        <p>He completed The Basic School at Quantico and reported to Pensacola for Aviation Pre-flight Indoctrination — he was in his second week of API training when he suffered a cardiac event during a swim evolution on August 1, 2011. He was pronounced brain dead on August 6. He was 24 years old.</p>
+        <p>True to the character he had shown his whole life, Patrick had registered as an organ donor. In the hours after his death, his kidney was matched to Sergeant Jacob Chadwick — a Marine stationed at Camp Pendleton who had been on dialysis for years. In death, Patrick gave a fellow Marine a second chance at life.</p>
+      </div>
+      <div class="legacy-note">Marine Aviation Training Support Group &nbsp;·&nbsp; Pensacola, Florida<br>B.S. Economics, With Honors &nbsp;·&nbsp; Organ Donor</div>
+    </div>
+
+    <!-- ── WILLIAM McILVAINE ── -->
+    <div class="honoree">
+      <div class="portrait-frame">
+        <img class="portrait" src="mcilvaine.png" alt="Lieutenant (j.g.) William B. McIlvaine III, USN">
+      </div>
+      <h2 class="honoree-name">William B. McIlvaine III</h2>
+      <p class="honoree-rank">LIEUTENANT (J.G.) &nbsp;·&nbsp; UNITED STATES NAVY</p>
+      <div class="honoree-meta">
+        <p class="meta-row">EL PASO, TEXAS &nbsp;·&nbsp; <strong>BORN MAY 5, 1988</strong></p>
+        <p class="meta-row">USNA 16TH COMPANY &nbsp;·&nbsp; <strong>CLASS OF 2010</strong></p>
+        <p class="meta-row">MARCH 11, 2013 &nbsp;·&nbsp; <strong>AGE 24</strong></p>
+      </div>
+      <div class="gold-rule"></div>
+      <div class="honoree-bio">
+        <p>William McIlvaine III was, by every account, a Renaissance man — equally at home in a chemistry lab, a bagpipe circle, or a cockpit. He grew up in El Paso and arrived at the Naval Academy with a dream of flying. Though his eyesight kept him from the pilot's seat, he channeled that same drive into becoming a Naval Flight Officer.</p>
+        <p>At the Academy he majored in Chemistry, graduated with merit in May 2010, and received both the Music Prize and the Chemistry Prize at graduation. For all four years he played in and eventually directed the Pipes and Drums — a group he led on tours across the country. He sang in the Protestant Choir during plebe summer and the Men's Glee Club during plebe year.</p>
+        <p>He earned his NFO wings at NAS Pensacola in May 2012 and chose EA-6B Prowlers, joining VAQ-129 — the Fleet Replacement Squadron at NAS Whidbey Island — in June 2012. On March 11, 2013, the EA-6B Prowler he was aboard crashed during a low-level training mission. Three Naval Academy graduates were killed in the accident: Lieutenant Commander Alan Patterson '00, Lieutenant Valerie Delaney '09, and William. He was 24 years old.</p>
+        <p>He was buried at the Naval Academy Cemetery in Annapolis.</p>
+      </div>
+      <div class="legacy-note">Electronic Attack Squadron (VAQ) 129 &nbsp;·&nbsp; NAS Whidbey Island, Washington<br>B.S. Chemistry, With Merit &nbsp;·&nbsp; Naval Academy Cemetery</div>
+    </div>
+
+  </div><!-- /honorees -->
+
+  <div class="closing">
+    <div class="closing-rule">
+      <div class="rule-line" style="background:linear-gradient(to right,transparent,var(--gold-dim))"></div>
+      <span class="closing-text">⚓</span>
+      <div class="rule-line flip" style="background:linear-gradient(to left,transparent,var(--gold-dim))"></div>
+    </div>
+    <p class="closing-quote">"Greater love hath no man than this, that a man lay down his life for his friends."</p>
+    <p class="closing-cite">JOHN 15:13</p>
+    <br>
+    <a href="index.html" class="back-btn">← Back to The Yard</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+
+</body>
+</html>

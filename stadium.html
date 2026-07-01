@@ -41,13 +41,15 @@
     .tab-bar{display:flex;border-bottom:2px solid rgba(201,162,39,0.25);margin-bottom:1.5rem;gap:0;}
     .tab-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;padding:0.7rem 1.25rem;color:var(--text-dim);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
     .tab-label:hover{color:var(--gold);}
-    #t-fb:checked   ~ .tab-wrap .tl-fb,
-    #t-mlax:checked ~ .tab-wrap .tl-mlax,
-    #t-wlax:checked ~ .tab-wrap .tl-wlax{color:var(--gold);border-bottom-color:var(--gold);}
+    #t-fb:checked    ~ .tab-wrap .tl-fb,
+    #t-mlax:checked  ~ .tab-wrap .tl-mlax,
+    #t-wlax:checked  ~ .tab-wrap .tl-wlax,
+    #t-bball:checked ~ .tab-wrap .tl-bball{color:var(--gold);border-bottom-color:var(--gold);}
     .tab-panel{display:none;}
-    #t-fb:checked   ~ .tab-wrap .tp-fb,
-    #t-mlax:checked ~ .tab-wrap .tp-mlax,
-    #t-wlax:checked ~ .tab-wrap .tp-wlax{display:block;}
+    #t-fb:checked    ~ .tab-wrap .tp-fb,
+    #t-mlax:checked  ~ .tab-wrap .tp-mlax,
+    #t-wlax:checked  ~ .tab-wrap .tp-wlax,
+    #t-bball:checked ~ .tab-wrap .tp-bball{display:block;}
 
     /* ── GAME ROWS ── */
     .season-record{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;color:var(--gold-pale);margin-bottom:1.1rem;padding:0.6rem 0.75rem;background:rgba(201,162,39,0.07);border-left:3px solid var(--gold);}
@@ -129,13 +131,15 @@
 
     <input type="radio" name="sched-tab" id="t-fb"   class="tab-input" checked>
     <input type="radio" name="sched-tab" id="t-mlax" class="tab-input">
-    <input type="radio" name="sched-tab" id="t-wlax" class="tab-input">
+    <input type="radio" name="sched-tab" id="t-wlax"  class="tab-input">
+    <input type="radio" name="sched-tab" id="t-bball" class="tab-input">
 
     <div class="tab-wrap">
       <div class="tab-bar">
-        <label class="tab-label tl-fb"   for="t-fb">FOOTBALL</label>
-        <label class="tab-label tl-mlax" for="t-mlax">MEN'S LACROSSE</label>
-        <label class="tab-label tl-wlax" for="t-wlax">WOMEN'S LACROSSE</label>
+        <label class="tab-label tl-fb"    for="t-fb">FOOTBALL</label>
+        <label class="tab-label tl-mlax"  for="t-mlax">MEN'S LACROSSE</label>
+        <label class="tab-label tl-wlax"  for="t-wlax">WOMEN'S LACROSSE</label>
+        <label class="tab-label tl-bball" for="t-bball">MEN'S BASKETBALL</label>
       </div>
 
       <!-- ── FOOTBALL ── -->
@@ -655,6 +659,357 @@
           </div>
         </div>
       </div><!-- /tp-wlax -->
+
+      <!-- ── MEN'S BASKETBALL ── -->
+      <div class="tab-panel tp-bball">
+        <p class="season-record">2025–26 Season Record: 26-8 overall · 17-1 Patriot League · Regular-Season Champions · NIT</p>
+        <div class="schedule-list">
+          <div class="game-group">NON-CONFERENCE</div>
+          <div class="game-row">
+            <span class="game-date">Nov 3</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2504.png" onerror="logoFb(this)" alt="Presbyterian">
+              <span class="logo-fb">PRE</span>
+              <span class="opp-name">Presbyterian</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 76-55</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" onerror="logoFb(this)" alt="Yale">
+              <span class="logo-fb">YAL</span>
+              <span class="opp-name">Yale</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result loss">L 68-97</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 11</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" onerror="logoFb(this)" alt="Penn State">
+              <span class="logo-fb">PSU</span>
+              <span class="opp-name">Penn State</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 71-80</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="" onerror="logoFb(this)" alt="Washington (MD)" style="display:none">
+              <span class="logo-fb" style="display:flex">WSH</span>
+              <span class="opp-name">Washington (MD)</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 97-64</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/153.png" onerror="logoFb(this)" alt="North Carolina">
+              <span class="logo-fb">UNC</span>
+              <span class="opp-name">North Carolina</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 61-73</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 22</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2450.png" onerror="logoFb(this)" alt="NJIT">
+              <span class="logo-fb">NJT</span>
+              <span class="opp-name">NJIT</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 86-70</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 26</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2296.png" onerror="logoFb(this)" alt="Gardner-Webb">
+              <span class="logo-fb">GWU</span>
+              <span class="opp-name">Gardner-Webb</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 84-51</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2119.png" onerror="logoFb(this)" alt="UNC Wilmington">
+              <span class="logo-fb">UNW</span>
+              <span class="opp-name">UNC Wilmington</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 57-87</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Nov 29</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2498.png" onerror="logoFb(this)" alt="SE Louisiana">
+              <span class="logo-fb">SLU</span>
+              <span class="opp-name">SE Louisiana</span>
+            </div>
+            <span class="game-loc neut">NEUT</span>
+            <span class="game-result loss">L 65-69</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Dec 3</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2165.png" onerror="logoFb(this)" alt="Delaware State">
+              <span class="logo-fb">DSU</span>
+              <span class="opp-name">Delaware State</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 66-59</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Dec 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" onerror="logoFb(this)" alt="Air Force">
+              <span class="logo-fb">AFA</span>
+              <span class="opp-name">Air Force</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 61-56</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Dec 19</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png" onerror="logoFb(this)" alt="Coppin State">
+              <span class="logo-fb">CSU</span>
+              <span class="opp-name">Coppin State</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 88-55</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Dec 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="" onerror="logoFb(this)" alt="Rosemont" style="display:none">
+              <span class="logo-fb" style="display:flex">ROS</span>
+              <span class="opp-name">Rosemont</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 70-23</span>
+          </div>
+          <div class="game-group">PATRIOT LEAGUE</div>
+          <div class="game-row">
+            <span class="game-date">Dec 31</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" onerror="logoFb(this)" alt="Boston University">
+              <span class="logo-fb">BU</span>
+              <span class="opp-name">Boston University</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 82-77</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 3</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2157.png" onerror="logoFb(this)" alt="Holy Cross">
+              <span class="logo-fb">HC</span>
+              <span class="opp-name">Holy Cross</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 65-58</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 76-55</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 10</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" onerror="logoFb(this)" alt="Lafayette">
+              <span class="logo-fb">LAF</span>
+              <span class="opp-name">Lafayette</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 76-50</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 12</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/44.png" onerror="logoFb(this)" alt="American">
+              <span class="logo-fb">AU</span>
+              <span class="opp-name">American</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 51-65</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 17</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" onerror="logoFb(this)" alt="Lehigh">
+              <span class="logo-fb">LEH</span>
+              <span class="opp-name">Lehigh</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 82-79 2OT</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2157.png" onerror="logoFb(this)" alt="Holy Cross">
+              <span class="logo-fb">HC</span>
+              <span class="opp-name">Holy Cross</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 85-68</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 24</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">Army</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 84-56</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" onerror="logoFb(this)" alt="Boston University">
+              <span class="logo-fb">BU</span>
+              <span class="opp-name">Boston University</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 58-50</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Jan 31</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2249.png" onerror="logoFb(this)" alt="Loyola MD">
+              <span class="logo-fb">LOY</span>
+              <span class="opp-name">Loyola MD</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 87-71</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 4</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" onerror="logoFb(this)" alt="Lafayette">
+              <span class="logo-fb">LAF</span>
+              <span class="opp-name">Lafayette</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 65-50</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 7</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/44.png" onerror="logoFb(this)" alt="American">
+              <span class="logo-fb">AU</span>
+              <span class="opp-name">American</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 82-73</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 9</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 76-60</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 14</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" onerror="logoFb(this)" alt="Colgate">
+              <span class="logo-fb">COL</span>
+              <span class="opp-name">Colgate</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 84-80 OT</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" onerror="logoFb(this)" alt="Lehigh">
+              <span class="logo-fb">LEH</span>
+              <span class="opp-name">Lehigh · Clinched Title</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 72-49</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 21</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" onerror="logoFb(this)" alt="Army">
+              <span class="logo-fb">ARMY</span>
+              <span class="opp-name">Army</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 81-63</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 25</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2249.png" onerror="logoFb(this)" alt="Loyola MD">
+              <span class="logo-fb">LOY</span>
+              <span class="opp-name">Loyola MD</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result win">W 78-51</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Feb 28</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" onerror="logoFb(this)" alt="Colgate">
+              <span class="logo-fb">COL</span>
+              <span class="opp-name">Colgate</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 85-69</span>
+          </div>
+          <div class="game-group">PATRIOT LEAGUE TOURNAMENT</div>
+          <div class="game-row">
+            <span class="game-date">Mar 5</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" onerror="logoFb(this)" alt="Bucknell">
+              <span class="logo-fb">BUC</span>
+              <span class="opp-name">Bucknell · Quarterfinal</span>
+            </div>
+            <span class="game-loc home">HOME</span>
+            <span class="game-result win">W 74-69</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 8</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" onerror="logoFb(this)" alt="Boston University">
+              <span class="logo-fb">BU</span>
+              <span class="opp-name">Boston University · Semifinal</span>
+            </div>
+            <span class="game-loc neut">NEUT</span>
+            <span class="game-result loss">L 72-73</span>
+          </div>
+          <div class="game-group">NIT</div>
+          <div class="game-row">
+            <span class="game-date">Mar 18</span>
+            <div class="opp-wrap">
+              <img class="opp-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" onerror="logoFb(this)" alt="Wake Forest">
+              <span class="logo-fb">WF</span>
+              <span class="opp-name">Wake Forest · NIT 1st Round</span>
+            </div>
+            <span class="game-loc away">AWAY</span>
+            <span class="game-result loss">L 72-82</span>
+          </div>
+        </div>
+      </div><!-- /tp-bball -->
 
     </div><!-- /tab-wrap -->
   </div><!-- /sched-section -->

@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Yard · USNA Class of 2010</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta property="og:image" content="https://navy2010.com/crest.png">
+  <meta property="og:title" content="The Yard · USNA Class of 2010">
+  <meta property="og:description" content="An interactive map of the Naval Academy for the Class of 2010's 20th reunion.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -93,6 +98,18 @@
       letter-spacing:0.32em; color:var(--gold-dim);
       border:1px solid var(--gold-dim); padding:0.3rem 1.2rem;
     }
+
+    /* ── CLASS CREST ── */
+    .header-crest {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      filter: invert(1) sepia(0.7) saturate(2.5) hue-rotate(5deg) brightness(1.1);
+      opacity: 0.88;
+      display: block;
+      margin: 0.75rem auto 0.5rem;
+    }
+    @media (max-width: 480px) { .header-crest { width: 110px; height: 110px; } }
 
     /* ── HINT BAR ── */
     .hint-bar { text-align:center; padding:0.9rem 2rem; background:var(--navy-bg); border-bottom:1px solid rgba(201,162,39,0.1); }
@@ -318,6 +335,7 @@
     <span class="rule-anchor">⚓</span>
     <div class="rule-line flip"></div>
   </div>
+  <img class="header-crest anim-2" src="crest.png" alt="USNA Class of 2010 Crest — Invicti">
   <h1 class="site-title anim-2">THE YARD</h1>
   <p class="site-subtitle anim-2">UNITED STATES NAVAL ACADEMY &nbsp;·&nbsp; ANNAPOLIS, MARYLAND</p>
   <span class="anniversary-badge anim-3">TWENTIETH ANNIVERSARY &nbsp;·&nbsp; MMXXX</span>

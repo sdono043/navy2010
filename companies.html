@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Companies · USNA Class of 2010</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy-deep:#040D1C;--navy-bg:#061224;--navy-mid:#0A1E38;--navy-panel:#0C2040;--gold:#C9A227;--gold-light:#E8C84A;--gold-dim:#7A6418;--gold-pale:#F0E4B0;--text:#E8D8A0;--text-dim:#8A9AA8;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--navy-deep);color:var(--text);font-family:'EB Garamond',Georgia,serif;min-height:100vh;}
+
+    /* ── NAV ── */
+    .site-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#020810;border-bottom:1px solid rgba(201,162,39,0.15);position:sticky;top:0;z-index:100;}
+    .nav-back{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--gold-light);}
+    .nav-logo{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+
+    /* ── HEADER ── */
+    .page-header{text-align:center;padding:4rem 2rem 3rem;background:linear-gradient(180deg,#020810 0%,var(--navy-bg) 100%);position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--gold),transparent);}
+    .page-header::after{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(201,162,39,0.05) 0%,transparent 70%);pointer-events:none;}
+    .header-rule{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;}
+    .rule-line{height:1px;width:100px;background:linear-gradient(to right,transparent,var(--gold-dim));}
+    .rule-line.flip{background:linear-gradient(to left,transparent,var(--gold-dim));}
+    .header-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.5em;color:var(--gold-dim);}
+    h1.page-title{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--gold-light);letter-spacing:0.05em;line-height:1;text-shadow:0 0 40px rgba(232,200,74,0.2);margin-bottom:1.2rem;}
+    .header-sub{max-width:520px;margin:0 auto;font-size:1rem;line-height:1.7;color:rgba(232,216,160,0.55);font-style:italic;}
+
+    /* ── GRID ── */
+    .content{max-width:1100px;margin:0 auto;padding:3.5rem 2rem 6rem;}
+    .co-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem 1.5rem;}
+    @media(max-width:900px){.co-grid{grid-template-columns:repeat(4,1fr);}}
+    @media(max-width:680px){.co-grid{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:440px){.co-grid{grid-template-columns:repeat(2,1fr);}}
+
+    /* ── COMPANY CARD ── */
+    .co-card{display:flex;flex-direction:column;align-items:center;gap:0.65rem;}
+    .co-logo-wrap{width:100%;max-width:140px;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:2px solid rgba(201,162,39,0.18);background:rgba(255,255,255,0.97);transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;position:relative;}
+    .co-logo-wrap:hover{border-color:var(--gold);transform:scale(1.06);box-shadow:0 0 20px rgba(201,162,39,0.25);}
+    .co-logo{display:block;width:100%;height:100%;object-fit:contain;padding:4px;}
+    .co-number{font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.3em;color:var(--gold-dim);}
+    .co-name{font-family:'Cinzel',serif;font-size:0.52rem;letter-spacing:0.15em;color:rgba(232,216,160,0.65);text-align:center;line-height:1.4;}
+
+    /* ── FOOTER ── */
+    .site-footer{text-align:center;padding:2rem;border-top:1px solid rgba(201,162,39,0.1);background:#020810;margin-top:2rem;}
+    .footer-motto{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--text-dim);margin-bottom:0.5rem;}
+    .footer-rule{width:50px;height:1px;background:var(--gold-dim);margin:0.6rem auto;}
+    .footer-note{font-size:0.72rem;color:rgba(138,154,168,0.3);font-style:italic;}
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← THE YARD</a>
+  <span class="nav-logo">⚓ &nbsp; CLASS OF 2010</span>
+</nav>
+
+<div class="page-header">
+  <div class="header-rule">
+    <div class="rule-line"></div>
+    <span class="header-label">CLASS OF 2010</span>
+    <div class="rule-line flip"></div>
+  </div>
+  <h1 class="page-title">The Companies</h1>
+  <p class="header-sub">Brigade of Midshipmen &nbsp;·&nbsp; United States Naval Academy<br>First through Thirtieth Company</p>
+</div>
+
+<div class="content">
+  <div class="co-grid">
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co01.png" alt="1st Company — Shipmates"></div>
+      <span class="co-number">1ST COMPANY</span>
+      <span class="co-name">Shipmates</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co02.png" alt="2nd Company — Fighting Joeys"></div>
+      <span class="co-number">2ND COMPANY</span>
+      <span class="co-name">Fighting Joeys</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co03.png" alt="3rd Company — Third Herd"></div>
+      <span class="co-number">3RD COMPANY</span>
+      <span class="co-name">Third Herd</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co04.png" alt="4th Company — Four Horsemen"></div>
+      <span class="co-number">4TH COMPANY</span>
+      <span class="co-name">Four Horsemen</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co05.png" alt="5th Company — The Thing"></div>
+      <span class="co-number">5TH COMPANY</span>
+      <span class="co-name">The Thing</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co06.png" alt="6th Company — Jackalopes"></div>
+      <span class="co-number">6TH COMPANY</span>
+      <span class="co-name">Jackalopes</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co07.png" alt="7th Company — Nulli Secundus"></div>
+      <span class="co-number">7TH COMPANY</span>
+      <span class="co-name">Nulli Secundus</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co08.png" alt="8th Company — Flaming Eight"></div>
+      <span class="co-number">8TH COMPANY</span>
+      <span class="co-name">Flaming Eight</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co09.png" alt="9th Company — Really Mean Pirates"></div>
+      <span class="co-number">9TH COMPANY</span>
+      <span class="co-name">Really Mean Pirates</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co10.png" alt="10th Company — Neptune"></div>
+      <span class="co-number">10TH COMPANY</span>
+      <span class="co-name">Neptune</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co11.png" alt="11th Company — Tigers"></div>
+      <span class="co-number">11TH COMPANY</span>
+      <span class="co-name">Tigers</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co12.png" alt="12th Company — Wolves"></div>
+      <span class="co-number">12TH COMPANY</span>
+      <span class="co-name">Wolves</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co13.png" alt="13th Company — Lucky 13"></div>
+      <span class="co-number">13TH COMPANY</span>
+      <span class="co-name">Lucky 13</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co14.png" alt="14th Company — Cobra"></div>
+      <span class="co-number">14TH COMPANY</span>
+      <span class="co-name">Cobra</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co15.png" alt="15th Company — Feisty Goats"></div>
+      <span class="co-number">15TH COMPANY</span>
+      <span class="co-name">Feisty Goats</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co16.png" alt="16th Company — Centurions"></div>
+      <span class="co-number">16TH COMPANY</span>
+      <span class="co-name">Centurions</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co17.png" alt="17th Company — Fighting Jabbers"></div>
+      <span class="co-number">17TH COMPANY</span>
+      <span class="co-name">Fighting Jabbers</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co18.png" alt="18th Company — Yard Dogs"></div>
+      <span class="co-number">18TH COMPANY</span>
+      <span class="co-name">Yard Dogs</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co19.png" alt="19th Company — Free 19"></div>
+      <span class="co-number">19TH COMPANY</span>
+      <span class="co-name">Free 19</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co20.png" alt="20th Company — Ride Through"></div>
+      <span class="co-number">20TH COMPANY</span>
+      <span class="co-name">Ride Through</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co21.png" alt="21st Company — Dawg Pound"></div>
+      <span class="co-number">21ST COMPANY</span>
+      <span class="co-name">Dawg Pound</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co22.png" alt="22nd Company — Spartans"></div>
+      <span class="co-number">22ND COMPANY</span>
+      <span class="co-name">Spartans</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co23.png" alt="23rd Company — Fighting Hellfish"></div>
+      <span class="co-number">23RD COMPANY</span>
+      <span class="co-name">Fighting Hellfish</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co24.png" alt="24th Company — Rockstars"></div>
+      <span class="co-number">24TH COMPANY</span>
+      <span class="co-name">Rockstars</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co25.png" alt="25th Company — Bear-Sharks"></div>
+      <span class="co-number">25TH COMPANY</span>
+      <span class="co-name">Bear-Sharks</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co26.png" alt="26th Company"></div>
+      <span class="co-number">26TH COMPANY</span>
+      <span class="co-name">26th Company</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co27.png" alt="27th Company — Kodiaks"></div>
+      <span class="co-number">27TH COMPANY</span>
+      <span class="co-name">Kodiaks</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co28.png" alt="28th Company — The Club"></div>
+      <span class="co-number">28TH COMPANY</span>
+      <span class="co-name">The Club</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co29.png" alt="29th Company — Flying Squirrels"></div>
+      <span class="co-number">29TH COMPANY</span>
+      <span class="co-name">Flying Squirrels</span>
+    </div>
+
+    <div class="co-card">
+      <div class="co-logo-wrap"><img class="co-logo" src="companies/co30.png" alt="30th Company — Thirty"></div>
+      <span class="co-number">30TH COMPANY</span>
+      <span class="co-name">Thirty</span>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-motto">EX SCIENTIA TRIDENS &nbsp;·&nbsp; CLASS OF 2010</p>
+  <div class="footer-rule"></div>
+  <p class="footer-note">navy2010.com &nbsp;·&nbsp; United States Naval Academy &nbsp;·&nbsp; Annapolis, Maryland</p>
+</footer>
+
+</body>
+</html>
